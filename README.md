@@ -1,26 +1,18 @@
 eggs-packs
 ==========
 
-gd.eggs.animationcache
-==
+### gd.eggs.animationcache
 
-gd.eggs.assetsfactory
-==
+### gd.eggs.assetsfactory
 
-gd.eggs.hint
-==
+### gd.eggs.hint
 
-gd.eggs.mvc
-==
+### gd.eggs.mvc
 
-gd.eggs.net
-==
+### gd.eggs.net
 
-gd.eggs.observer
-==
+### gd.eggs.observer
 
-gd.eggs.texturepacker
-==
+### gd.eggs.texturepacker
 
-gd.eggs.util
-==
+### gd.eggs.util
