@@ -32,7 +32,7 @@ package gd.eggs.mvc.model
 		 */
 		public function addCallback(object:*, type:String, callback:Function):void
 		{
-			if (!_callbacks.hasOwnProperty(object)) _callbacks[object] = [];
+			if (!_callbacks[object]) _callbacks[object] = {};
 			if (!_callbacks[object].hasOwnProperty(type)) _callbacks[object][type] = [];
 
 			if (_callbacks[object][type].indexOf(callback) == -1) _callbacks[object][type].push(callback);
