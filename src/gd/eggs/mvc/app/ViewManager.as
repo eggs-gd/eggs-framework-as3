@@ -42,7 +42,7 @@ package gd.eggs.mvc.app
 			if (Validate.isNull(viewName)) throw new Error("viewName is null");
 			if (!_views.hasOwnProperty(viewName)) throw new Error("!_views.exists(viewName), viewName: " + viewName);
 
-			return _views.get(viewName);
+			return _views[viewName];
 		}
 
 		public static function show(viewName:String)
