@@ -1,11 +1,14 @@
-package gd.eggs.mvc.app{
+package gd.eggs.mvc.app
+{
 
 	import gd.eggs.mvc.controller.BaseController;
+
 
 	/**
 	 * @author Dukobpa3
 	 */
-	interface IBootstrap {
+	public interface IBootstrap
+	{
 		//=========================================================================
 		//	VARIABLES
 		//=========================================================================
@@ -17,8 +20,11 @@ package gd.eggs.mvc.app{
 		//=========================================================================
 
 		function registerModels():void;
+
 		function registerViews():void;
+
 		function registerNotifications():void;
+
 		function registerControllers():void;
 	}
 

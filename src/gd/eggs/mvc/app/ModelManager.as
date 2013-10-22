@@ -1,5 +1,6 @@
 package gd.eggs.mvc.app
 {
+
 	import gd.eggs.mvc.model.BaseModel;
 	import gd.eggs.util.Validate;
 
@@ -14,17 +15,17 @@ package gd.eggs.mvc.app
 
 		public static function addModel(modelName:String, model:BaseModel)
 		{
-			if(Validate.isNull(modelName)) throw new Error("modelName is null");
-			if(Validate.isNull(model)) throw new Error("model is null");
-			if(_models.hasOwnProperty(modelName)) throw new Error("_models.exists(modelName), modelName: " + modelName);
+			if (Validate.isNull(modelName)) throw new Error("modelName is null");
+			if (Validate.isNull(model)) throw new Error("model is null");
+			if (_models.hasOwnProperty(modelName)) throw new Error("_models.exists(modelName), modelName: " + modelName);
 
-			_models[modelName] =  model;
+			_models[modelName] = model;
 		}
 
 		public static function getModel(modelName:String):BaseModel
 		{
-			if(Validate.isNull(modelName)) throw new Error("modelName is null");
-			if(!_models.hasOwnProperty(modelName)) throw new Error("!_models.exists(modelName), modelName: " + modelName);
+			if (Validate.isNull(modelName)) throw new Error("modelName is null");
+			if (!_models.hasOwnProperty(modelName)) throw new Error("!_models.exists(modelName), modelName: " + modelName);
 
 			return _models[modelName];
 		}

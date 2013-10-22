@@ -45,7 +45,7 @@ package gd.eggs.net
 		
 		public function ServerController(decoder:IMessageDecoder) 
 		{
-			super(null);
+			super();
 			
 			_connection = new SocketConnect();
 			_msgPool = new Vector.<MessageBase>();
