@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>framework</artifactId>
+    <name>framework</name>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>swc</packaging>
+
+    <parent>
+        <groupId>gd.eggs.as3</groupId>
+        <artifactId>base</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <repositories>
+        <repository>
+            <id>github.repo.release</id>
+            <name>Internal Repository</name>
+            <url>https://github.com/eggs-gd/eggs-mvn-artifactory/release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>github.repo.snapshot</id>
+            <name>Internal Repository</name>
+            <url>https://github.com/eggs-gd/eggs-mvn-artifactory/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>
