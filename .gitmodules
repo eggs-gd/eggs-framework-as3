@@ -1,9 +1,0 @@
-[submodule "other/starling"]
-	path = other/starling
-	url = https://github.com/PrimaryFeather/Starling-Framework.git
-[submodule "other/starling-mvc"]
-	path = other/starling-mvc
-	url = https://github.com/CreativeBottle/starlingMVC.git
-[submodule "other/feathers-ui"]
-	path = other/feathers-ui
-	url = https://github.com/joshtynjala/feathers.git

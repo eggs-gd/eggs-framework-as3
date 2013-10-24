@@ -13,7 +13,7 @@ package gd.eggs.mvc.app
 
 		private static var _models:Object = {}; //<string, BaseModel> = new Map();
 
-		public static function addModel(modelName:String, model:BaseModel)
+		public static function addModel(modelName:String, model:BaseModel):void
 		{
 			if (Validate.isNull(modelName)) throw new Error("modelName is null");
 			if (Validate.isNull(model)) throw new Error("model is null");

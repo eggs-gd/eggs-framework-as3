@@ -2,6 +2,8 @@ package gd.eggs.mvc.model
 {
 	import flash.utils.Dictionary;
 
+	import gd.eggs.util.Validate;
+
 
 	/**
 	 * Базовый класс модели.
@@ -45,7 +47,7 @@ package gd.eggs.mvc.model
 		 */
 		public function removeCallback(object:*, type:String = "all", callback:Function = null):void
 		{
-			if (!object) return;
+			if (!Validate.isNull(object)) return;
 			if (type == "all")
 			{
 				delete _callbacks[object];
@@ -53,7 +55,7 @@ package gd.eggs.mvc.model
 			else
 			{
 				if (!_callbacks[object].hasOwnProperty(type)) return;
-				if (!callback)
+				if (!Validate.isNull(callback))
 				{
 					delete _callbacks[object][type];
 				}

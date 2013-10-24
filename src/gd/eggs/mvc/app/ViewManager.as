@@ -15,7 +15,7 @@ package gd.eggs.mvc.app
 		private static var _scopes:Object = {}; //:Map<EnumValue, DisplayObjectContainer> = new Map();
 		private static var _views:Object = {}; //:Map<EnumValue, AView> = new Map();
 
-		public static function addScope(scope:String, container:DisplayObjectContainer)
+		public static function addScope(scope:String, container:DisplayObjectContainer):void
 		{
 			if (Validate.isNull(scope)) throw new Error("scope is null");
 			if (Validate.isNull(container)) throw new Error("container is null");
@@ -24,7 +24,7 @@ package gd.eggs.mvc.app
 			_scopes[scope] = container;
 		}
 
-		public static function addView(scope:String, viewName:String, view:BaseView)
+		public static function addView(scope:String, viewName:String, view:BaseView):void
 		{
 			if (Validate.isNull(scope)) throw new Error("scope is null");
 			if (Validate.isNull(viewName)) throw new Error("viewName is null");
@@ -45,7 +45,7 @@ package gd.eggs.mvc.app
 			return _views[viewName];
 		}
 
-		public static function show(viewName:String)
+		public static function show(viewName:String):void
 		{
 			if (Validate.isNull(viewName)) throw new Error("viewName is null");
 			if (!_views.hasOwnProperty(viewName)) throw new Error("!_views.exists(viewName), viewName: " + viewName);
@@ -53,7 +53,7 @@ package gd.eggs.mvc.app
 			_views[viewName].show();
 		}
 
-		public static function hide(viewName:String)
+		public static function hide(viewName:String):void
 		{
 			if (Validate.isNull(viewName)) throw new Error("viewName is null");
 			if (!_views.hasOwnProperty(viewName)) throw new Error("!_views.exists(viewName), viewName: " + viewName);
@@ -61,7 +61,7 @@ package gd.eggs.mvc.app
 			_views[viewName].hide();
 		}
 
-		public static function hideAll()
+		public static function hideAll():void
 		{
 			for each (var it:BaseView in _views) it.hide();
 		}

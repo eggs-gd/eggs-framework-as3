@@ -11,7 +11,7 @@ package gd.eggs.assetsfactory.items
 	public class ItemEvent extends Event
 	{
 		
-		public function ItemEvent(type, bubbles, cancelable)
+		public function ItemEvent(type:String, bubbles:Boolean, cancelable:Boolean)
 		{
 			super(type, bubbles, cancelable);
 		}
