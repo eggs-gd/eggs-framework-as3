@@ -1,7 +1,5 @@
 package gd.eggs.net.protocol.core
 {
-	import gd.eggs.net.protocol.core.BaseProtoData;
-	
 
 	/**
 	 * ...

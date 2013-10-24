@@ -238,8 +238,8 @@
 		/**
 		 * Returns the LoaderInfo object associated with a SWF file defined as an object.
 		 *
-		 * @param object            <Object> The object for which you want to get an associated LoaderInfo object.
-		 * @return                  <LoaderInfo> The associated LoaderInfo object. Returns null when called
+		 * @param object            <Object/> The object for which you want to get an associated LoaderInfo object.
+		 * @return                  <LoaderInfo/> The associated LoaderInfo object. Returns null when called
 		 *                            in non-debugger builds (or when debugging is not enabled) or if the referenced object
 		 *                            does not have an associated LoaderInfo object (such as some objects used by the AIR runtime).
 		 */

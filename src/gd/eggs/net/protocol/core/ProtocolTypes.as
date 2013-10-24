@@ -1,7 +1,4 @@
-/**
- * @author		Sergey Suzdalskiy
- * @e-mail:		sergey.suzdalskiy@gmail.com
- */
+
 package gd.eggs.net.protocol.core
 {
 	public class ProtocolTypes

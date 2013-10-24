@@ -5,13 +5,15 @@ package gd.eggs.mvc.view
 	import flash.display.Sprite;
 	import flash.events.Event;
 
+
+	[Event(name="viewChange", type="gd.eggs.mvc.view.ViewEvent")]
+
 	/**
 	 * Базовый класс-представление
 	 * При создании или установке модели добавляет коллбек по-умолчанию
 	 * При удалении модели или дестрое - удаляет его.
 	 * @author Dukobpa3
 	 */
-	[Event(name="viewChange", type="gd.eggs.mvc.view.ViewEvent")]
 	public class BaseView extends Sprite
 	{
 		/** Данные для отображения */
