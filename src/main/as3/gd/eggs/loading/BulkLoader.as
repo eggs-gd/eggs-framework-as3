@@ -430,13 +430,13 @@ package gd.eggs.loading
 
 		/** @private */
 		public static var _typeClasses:Object = {
-			image: ImageItem,
+			image    : ImageItem,
 			movieclip: ImageItem,
-			xml: XMLItem,
-			video: VideoItem,
-			sound: SoundItem,
-			text: URLItem,
-			binary: BinaryItem
+			xml      : XMLItem,
+			video    : VideoItem,
+			sound    : SoundItem,
+			text     : URLItem,
+			binary   : BinaryItem
 		};
 
 		/** @private */
@@ -1648,8 +1648,8 @@ package gd.eggs.loading
 					var_name = var_name.replace(/\s*/g, "");
 				}
 				matches.push({
-					start: result.index,
-					end: result.index + result.var_name.length,
+					start   : result.index,
+					end     : result.index + result.var_name.length,
 					changeTo: substitutions[var_name] });
 				// be paranoid so we don't hang the player if the matching goes cockos
 				numRuns++;

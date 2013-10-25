@@ -1,6 +1,4 @@
-/**
- * Created by oburdun on 10/24/13.
- */
+
 package
 {
 
