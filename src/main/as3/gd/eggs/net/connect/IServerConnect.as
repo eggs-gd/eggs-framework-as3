@@ -1,4 +1,4 @@
-package gd.eggs.net.connect
+﻿package gd.eggs.net.connect
 {
 
 	/**

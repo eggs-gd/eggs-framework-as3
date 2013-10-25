@@ -1,4 +1,4 @@
-package gd.eggs.mvc.app
+﻿package gd.eggs.mvc.app
 {
 
 	/**

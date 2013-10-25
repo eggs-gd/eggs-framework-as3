@@ -1,4 +1,4 @@
-package gd.eggs.mvc.controller
+﻿package gd.eggs.mvc.controller
 {
 
 	import flash.events.EventDispatcher;

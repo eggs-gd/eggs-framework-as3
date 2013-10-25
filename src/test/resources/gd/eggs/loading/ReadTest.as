@@ -1,4 +1,4 @@
-package gd.eggs.loading
+﻿package gd.eggs.loading
 {
 	import flash.display.Bitmap;
 	import flash.display.Sprite;

@@ -1,4 +1,4 @@
-package gd.eggs.net.protocol.decoder
+﻿package gd.eggs.net.protocol.decoder
 {
 	import flash.events.EventDispatcher;
 	import flash.utils.ByteArray;

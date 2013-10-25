@@ -1,4 +1,4 @@
-package gd.eggs.net.protocol.process
+﻿package gd.eggs.net.protocol.process
 {
 	import flash.utils.describeType;
 

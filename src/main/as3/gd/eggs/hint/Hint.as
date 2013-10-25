@@ -1,4 +1,4 @@
-package gd.eggs.hint
+﻿package gd.eggs.hint
 {
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;

@@ -1,4 +1,4 @@
-package gd.eggs.loading
+﻿package gd.eggs.loading
 {
 	import flash.display.Sprite;
 	import flash.events.Event;

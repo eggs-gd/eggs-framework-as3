@@ -1,4 +1,4 @@
-package gd.eggs.animationcache
+﻿package gd.eggs.animationcache
 {
 	import flash.display.BitmapData;
 

@@ -1,4 +1,4 @@
-package gd.eggs.texturepacker
+﻿package gd.eggs.texturepacker
 {
 	import flash.display.BitmapData;
 

@@ -1,4 +1,4 @@
-package gd.eggs.util
+﻿package gd.eggs.util
 {
 
 	/**

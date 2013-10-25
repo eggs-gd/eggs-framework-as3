@@ -1,4 +1,4 @@
-package gd.eggs.net
+﻿package gd.eggs.net
 {
 	import gd.eggs.mvc.controller.BaseController;
 	import gd.eggs.net.connect.ConnectionEvent;

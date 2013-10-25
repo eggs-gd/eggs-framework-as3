@@ -1,4 +1,4 @@
-package gd.eggs.mvc.view
+﻿package gd.eggs.mvc.view
 {
 	import gd.eggs.observer.IObservable;
 	import gd.eggs.observer.Notification;

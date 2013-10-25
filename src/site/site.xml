@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Maven">
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.3.0</version>
+	</skin>
+
+	<body>
+		<menu name="Documentation">
+			<item name="AsDocs" href="asdoc/index.html"/>
+			<item name="PMD Report" href="pmd/flexpmd.html"/>
+			<item name="Coverage Report" href="coverage/index.html"/>
+		</menu>
+
+		<menu ref="reports"/>
+	</body>
+</project>

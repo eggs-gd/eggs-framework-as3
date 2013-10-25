@@ -1,4 +1,4 @@
-package gd.eggs.assetsfactory
+﻿package gd.eggs.assetsfactory
 {
 	import flash.events.Event;
 

@@ -1,4 +1,4 @@
-package gd.eggs.mvc.view
+﻿package gd.eggs.mvc.view
 {
 	import flash.display.Sprite;
 	import flash.events.Event;

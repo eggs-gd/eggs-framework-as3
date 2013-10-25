@@ -1,4 +1,4 @@
-/* BulkLoader: manage multiple loadings in Actioncript 3.
+﻿/* BulkLoader: manage multiple loadings in Actioncript 3.
  *   
  *   
  *   @author Arthur Debert

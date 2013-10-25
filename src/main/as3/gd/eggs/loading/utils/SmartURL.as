@@ -1,4 +1,4 @@
-package gd.eggs.loading.utils
+﻿package gd.eggs.loading.utils
 {
 	/**
 	 * A simple data holder to normalize an URI components.

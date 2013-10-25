@@ -1,4 +1,4 @@
-package gd.eggs.observer
+﻿package gd.eggs.observer
 {
 	/**
 	 * ...

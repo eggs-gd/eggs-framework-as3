@@ -1,4 +1,4 @@
-package gd.eggs.assetsfactory.items
+﻿package gd.eggs.assetsfactory.items
 {
 	import flash.net.URLRequest;
 	import flash.utils.ByteArray;

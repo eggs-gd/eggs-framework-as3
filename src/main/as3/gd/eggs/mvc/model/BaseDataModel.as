@@ -1,4 +1,4 @@
-package gd.eggs.mvc.model
+﻿package gd.eggs.mvc.model
 {
 
 

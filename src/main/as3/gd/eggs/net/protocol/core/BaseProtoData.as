@@ -1,4 +1,4 @@
-package gd.eggs.net.protocol.core
+﻿package gd.eggs.net.protocol.core
 {
 
 	import flash.utils.ByteArray;

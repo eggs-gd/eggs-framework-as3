@@ -1,4 +1,4 @@
-package gd.eggs.loading.loadingtypes
+﻿package gd.eggs.loading.loadingtypes
 {
 
 	import flash.errors.EOFError;
