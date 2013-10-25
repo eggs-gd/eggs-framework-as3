@@ -4,39 +4,39 @@ package gd.eggs.observer
 	 * ...
 	 * @author Jewelz
 	 */
-	public class Observer 
+	public class Observer
 	{
 		//единственный экземпляр класса
 		private static var _instance:Observer = null;
 
 
-		
 		//массив по ключу Notifications.name всех нотификаций и подписанных на них обсерверов
 		private var notifications:Object = {};
- 
-		public function Observer() 
+
+		public function Observer()
 		{
 			if (_instance)
 			{
-				throw new Error ("Use 'getInstance()' to get instance of class");
+				throw new Error("Use 'getInstance()' to get instance of class");
 			}
 		}
-		
+
 		/**
 		 * Получение экземпляра класса
 		 * @return
 		 */
-		public static function getInstance():Observer 
+		public static function getInstance():Observer
 		{
-			if (_instance == null) {
+			if (_instance == null)
+			{
 				_instance = new Observer();
 			}
 			return _instance;
 		}
- 
+
 		/**
 		 * Регистрация нового обсервера
-		 * @param	value
+		 * @param    value
 		 */
 		public function registerObserver(value:IObserver):void
 		{
@@ -57,10 +57,10 @@ package gd.eggs.observer
 				obses.push(value);
 			}
 		}
-		
+
 		/**
 		 * Оповещение всех обсерверов, подписанных на note.name
-		 * @param	note
+		 * @param    note
 		 */
 		public function notifyObservers(note:Notification):void
 		{
@@ -77,7 +77,7 @@ package gd.eggs.observer
 				}
 			}
 		}
-		
+
 	}
 
 }

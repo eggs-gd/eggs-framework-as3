@@ -4,16 +4,15 @@ package gd.eggs.observer
 	 * ...
 	 * @author Jewelz
 	 */
-	public interface IObservable 
+	public interface IObservable
 	{
 		/**
 		 * Отправляет нотификацию всем обсерверам, подписанным на данный Notification.name
-		 * @param	note
+		 * @param    note
 		 */
 		function sendNotification(note:Notification):void;
 
 
-		
 	}
 
 }

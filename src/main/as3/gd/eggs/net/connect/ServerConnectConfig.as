@@ -4,13 +4,13 @@ package gd.eggs.net.connect
 	 * ...
 	 * @author Dukobpa3
 	 */
-	public class ServerConnectConfig 
+	public class ServerConnectConfig
 	{
-		
+
 		//=====================================================================
 		//	CONSTANTS
 		//=====================================================================
-		
+
 		//=====================================================================
 		//	PARAMETERS
 		//=====================================================================
@@ -23,7 +23,7 @@ package gd.eggs.net.connect
 		//=====================================================================
 		//	CONSTRUCTOR, INIT
 		//=====================================================================
-		public function ServerConnectConfig(type:String, timeout:int, connectTime:int, host:String, port:int) 
+		public function ServerConnectConfig(type:String, timeout:int, connectTime:int, host:String, port:int)
 		{
 			_type = type;
 			_timeout = timeout;
@@ -31,31 +31,31 @@ package gd.eggs.net.connect
 			_host = host;
 			_port = port;
 		}
-		
+
 		//=====================================================================
 		//	PUBLIC
 		//=====================================================================
-		
+
 		//=====================================================================
 		//	PRIVATE
 		//=====================================================================
-		
+
 		//=====================================================================
 		//	HANDLERS
 		//=====================================================================
-		
+
 		//=====================================================================
 		//	ACCESSORS
 		//=====================================================================
 		public function get timeout():int { return _timeout; }
-		
+
 		public function get connectTime():int { return _connectTime; }
-		
+
 		public function get host():String { return _host; }
-		
+
 		public function get port():int { return _port; }
-		
+
 		public function get type():String { return _type; }
 	}
-	
+
 }

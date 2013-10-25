@@ -6,17 +6,17 @@ package gd.eggs.util
 	 */
 	public class TimeAbstract
 	{
-		
+
 		public static function getAbstractTextFormat(unixTime:int):String
 		{
 			var format:String = '';
 
-			
+
 			var days:int = int(unixTime / 86400);
 			var hours:int = int((unixTime - days * 86400) / 3600);
 			var mins:int = int((unixTime - days * 86400 - hours * 3600) / 60);
 			var secs:int = unixTime - days * 86400 - hours * 3600 - mins * 60;
-			
+
 			if (days)
 			{
 				format += days.toString();
@@ -40,10 +40,10 @@ package gd.eggs.util
 				format += secs.toString();
 				format += "s ";
 			}
-			
+
 			return format;
 		}
-		
+
 	}
 
 }

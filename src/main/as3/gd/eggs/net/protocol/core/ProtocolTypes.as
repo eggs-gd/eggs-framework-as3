@@ -1,4 +1,3 @@
-
 package gd.eggs.net.protocol.core
 {
 	public class ProtocolTypes

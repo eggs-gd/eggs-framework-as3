@@ -4,9 +4,9 @@ package gd.eggs.observer
 	 * Тело нотификации для отправки обсервером
 	 * @author Jewelz
 	 */
-	public class Notification 
+	public class Notification
 	{
-		
+
 		public function Notification(name:String, body:Object = null)
 		{
 			this.name = name;
@@ -14,11 +14,11 @@ package gd.eggs.observer
 
 			this.body = body;
 		}
-		
+
 		public var name:String;
 		public var body:Object;
 		public var target:Object;
-		
+
 	}
 
 }

@@ -2,8 +2,6 @@ package gd.eggs.mvc.app
 {
 
 	import gd.eggs.mvc.model.BaseModel;
-
-
 	import gd.eggs.util.Validate;
 
 

@@ -2,7 +2,6 @@ package gd.eggs.mvc.model
 {
 
 
-
 	/**
 	 * Базовая модель данных. От этого класса наследуется главная модель
 	 * так же все ветки и параметры которые должны автообновляться от сервера
@@ -12,35 +11,35 @@ package gd.eggs.mvc.model
 	 * дабы избежать лишней точки в имени параметра.
 	 *
 	 * Все известные параметры в приходящих с сервера данных должны быть добавлены в _data в конструкторе:
-	 * 		_data.someParam = new SomeClass(); //SomeClass - Это либо что-то из базовых типов, либо очередной потомок BaseDataModel
-	 * 
+	 *        _data.someParam = new SomeClass(); //SomeClass - Это либо что-то из базовых типов, либо очередной потомок BaseDataModel
+	 *
 	 * так же при необходимости следует оверрайдить метод: updateNoKey(key:Object, data:Object) - этот метод занимается заполнением данных
 	 * имени которых не нашел в _data.
-	 * 
+	 *
 	 * @author Dukobpa3
 	 */
-	public class BaseDataModel extends BaseModel 
+	public class BaseDataModel extends BaseModel
 	{
 		/** Объект для данных сервера */
 		protected var _data:Object;
-		
+
 		/**
 		 * Конструктор. Тут инициалируется композиция с объектов-контенйером для автообновляемых данных.
 		 * так же нужно в констркуторе указывать инициализацию всех нужных параметров нуждающихся в автообновляении и вставлять их в этот объект.
 		 * Имена параметров должны в точности совпадать с серверными.
 		 */
-		public function BaseDataModel() 
+		public function BaseDataModel()
 		{
 			super();
 			_data = {};
 		}
-		
+
 		//-----------------------------
 		//	PRIVATE
 		//-----------------------------
 		/**
 		 * Пропихивает данные полученные с сервера по веткам моделей.
-		 * @param	data
+		 * @param    data
 		 */
 		protected function updateData(data:Object):void
 		{
@@ -61,31 +60,32 @@ package gd.eggs.mvc.model
 				{
 					updateNoKey(key, data[key]); // то запускаем функцию занимающуюся обновлением без ключей.
 				}
-				
+
 				update(key); // Кричим во вьюху что изменили параметр.
 			}
 		}
-		
+
 		/**
 		 * Оверрайдим там где надо.
-		 * @param	key
-		 * @param	data
+		 * @param    key
+		 * @param    data
 		 */
-		protected function updateNoKey(key:String, data:Object):void 
+		protected function updateNoKey(key:String, data:Object):void
 		{
 			trace(key);
 			_data[key] = data;
 		}
-		
+
 		//=============================
 		//	ACCESSORS
 		//=============================
-		
+
 		/**
 		 * Возвращает основной контейнер с автообновляемыми данными
 		 */
-		public function get data():Object { return _data; }
-		
+		public function get data():Object
+		{ return _data; }
+
 	}
 
 }

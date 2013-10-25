@@ -2,13 +2,12 @@ package gd.eggs.util
 {
 	import aze.motion.eaze;
 
-
-
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.geom.Point;
 	import flash.text.TextField;
+
 
 	/**
 	 * ...
@@ -31,7 +30,7 @@ package gd.eggs.util
 		private var _tf:TextField;
 		private var _timer:int;
 		private var _radius:int;
-		
+
 		//=====================================================================
 		//	CONSTRUCTOR, INIT
 		//=====================================================================
@@ -42,12 +41,12 @@ package gd.eggs.util
 			_point = new Point();
 			_shape = new Shape();
 			_shape.visible = false;
-			
+
 			addChild(_shape);
-			
+
 			_tf = new TextField();
 			addChild(_tf);
-			
+
 			this.mouseChildren = this.mouseEnabled = false;
 		}
 
@@ -64,17 +63,13 @@ package gd.eggs.util
 			_shape.graphics.beginFill(0x000000, 0.8);
 			_shape.graphics.moveTo(0, 0);
 			_shape.graphics.lineTo(_start.x, _start.y);
-			eaze(_point)
-				.to(time, 
-					{ x: [ _radius, _radius, -_radius, -_radius, 0], 
-					y: [ -_radius, _radius, _radius, -_radius, -_radius] })
-				.onUpdate(animUpdate)
-				.onComplete(animComplete);
+			eaze(_point).to(time, { x: [ _radius, _radius, -_radius, -_radius, 0],
+				y: [ -_radius, _radius, _radius, -_radius, -_radius] }).onUpdate(animUpdate).onComplete(animComplete);
 
 			timer = time;
-			eaze(this).to(time, { timer:0 } );
+			eaze(this).to(time, { timer: 0 });
 		}
-		
+
 		//=====================================================================
 		//	PRIVATE
 		//=====================================================================
@@ -93,6 +88,7 @@ package gd.eggs.util
 			_tf.visible = false;
 			dispatchEvent(new Event(Event.COMPLETE))
 		}
+
 		//=====================================================================
 		//	HANDLERS
 		//=====================================================================

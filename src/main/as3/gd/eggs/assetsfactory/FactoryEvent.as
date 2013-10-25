@@ -11,17 +11,17 @@ package gd.eggs.assetsfactory
 	{
 		public static const COMPLETE:String = "complete";
 		public static const PROGRESS:String = "progress";
-		
+
 		public static const ITEM_ERROR:String = "itemError";
-		
+
 		public static const ITEM_COMPLETE:String = "itemComplete";
-		
-		
-		public function FactoryEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false) 
+
+
+		public function FactoryEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)
 		{
 			super(type, bubbles, cancelable);
 		}
-		
+
 	}
 
 }

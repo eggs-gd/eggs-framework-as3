@@ -1,11 +1,6 @@
 package gd.eggs.mvc.app
 {
 
-	import gd.eggs.mvc.controller.BaseController;
-
-
-
-
 	/**
 	 * @author Dukobpa3
 	 */

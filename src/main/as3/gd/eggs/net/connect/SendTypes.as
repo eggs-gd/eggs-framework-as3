@@ -4,7 +4,7 @@ package gd.eggs.net.connect
 	 * ...
 	 * @author Dukobpa3
 	 */
-	public class SendTypes 
+	public class SendTypes
 	{
 		public static const STRING:int = 0;
 

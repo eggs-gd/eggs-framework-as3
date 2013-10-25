@@ -9,7 +9,6 @@ package gd.eggs.util
 		function get isInited():Boolean;
 
 
-
 		function init():void;
 
 		function destroy():void;

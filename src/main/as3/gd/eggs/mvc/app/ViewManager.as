@@ -1,12 +1,10 @@
 package gd.eggs.mvc.app
 {
 
-	import gd.eggs.mvc.view.BaseView;
-
-
-	import gd.eggs.util.Validate;
-
 	import flash.display.DisplayObjectContainer;
+
+	import gd.eggs.mvc.view.BaseView;
+	import gd.eggs.util.Validate;
 
 
 	/**

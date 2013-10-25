@@ -1,11 +1,9 @@
 package gd.eggs.mvc.view
 {
-	import gd.eggs.mvc.model.BaseModel;
-
-
-
 	import flash.display.Sprite;
 	import flash.events.Event;
+
+	import gd.eggs.mvc.model.BaseModel;
 
 
 	[Event(name="viewChange", type="gd.eggs.mvc.view.ViewEvent")]
@@ -15,18 +13,17 @@ package gd.eggs.mvc.view
 	 * При создании или установке модели добавляет коллбек по-умолчанию
 	 * При удалении модели или дестрое - удаляет его.
 	 * @author Dukobpa3
-	 */
-	public class BaseView extends Sprite
+	 */ public class BaseView extends Sprite
 	{
 		/** Данные для отображения */
 		protected var _model:BaseModel;
-		
+
 		/**
 		 * Конструктор
-		 * @param	model модель (можно не указывать)
-		 * @param	update отрисовывать ли сразу при создании
+		 * @param    model модель (можно не указывать)
+		 * @param    update отрисовывать ли сразу при создании
 		 */
-		public function BaseView(model:BaseModel = null, update:Boolean = true) 
+		public function BaseView(model:BaseModel = null, update:Boolean = true)
 		{
 			if (model)
 			{
@@ -48,8 +45,8 @@ package gd.eggs.mvc.view
 
 		/**
 		 * Устанавливает модель
-		 * @param	model модель
-		 * @param	update нужно ли рендерить сразу после установки
+		 * @param    model модель
+		 * @param    update нужно ли рендерить сразу после установки
 		 */
 		public function setModel(model:BaseModel, update:Boolean = true):void
 		{
@@ -58,12 +55,12 @@ package gd.eggs.mvc.view
 				_model.removeCallback(this);
 				_model = null;
 			}
-			
+
 			_model = model;
 			_model.addCallback(this, BaseModel.DEFAULT_CHANGE, onModelChange);
 			if (update) _model.refresh();
 		}
-		
+
 		/**
 		 * Отписывается от модели и обнуляет ссылку
 		 */
@@ -76,7 +73,7 @@ package gd.eggs.mvc.view
 				_model = null;
 			}
 		}
-		
+
 		/**
 		 * Вызывает перерисовку вьюхи в следующем кадре
 		 */
@@ -87,7 +84,7 @@ package gd.eggs.mvc.view
 				addEventListener(Event.ENTER_FRAME, onNextFrame);
 			}
 		}
-		
+
 		/**
 		 * Вызывает перерисовку вьюхи немедленно
 		 */
@@ -95,11 +92,11 @@ package gd.eggs.mvc.view
 		{
 			render();
 		}
-		
+
 		//=====================================================================
 		//		PRIVATE
 		//=====================================================================
-		
+
 		/**
 		 * Обработка события изменения модели
 		 * Вызов отложенной перерисовки
@@ -111,24 +108,24 @@ package gd.eggs.mvc.view
 				addEventListener(Event.ENTER_FRAME, onNextFrame);
 			}
 		}
-		
+
 		/**
-		 * обрабатываем событие модели о изменении оной. 
+		 * обрабатываем событие модели о изменении оной.
 		 * Так же очищаем массив изменений модели после рендера.
-		 * @param	e
+		 * @param    e
 		 */
-		private function onNextFrame(e:Event):void 
+		private function onNextFrame(e:Event):void
 		{
 			removeEventListener(Event.ENTER_FRAME, onNextFrame);
 			render();
 		}
-		
+
 		/**
 		 * Наследуемый метод обработки данных модели (перерисовка компонента)
 		 */
-		protected function render():void 
+		protected function render():void
 		{
-			
+
 		}
 
 	}

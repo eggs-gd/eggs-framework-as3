@@ -4,9 +4,9 @@ package gd.eggs.net.connect
 	 * ...
 	 * @author Dukobpa3
 	 */
-	public class ConnectionType 
+	public class ConnectionType
 	{
-		
+
 		//=====================================================================
 		//	CONSTANTS
 		//=====================================================================
@@ -14,5 +14,5 @@ package gd.eggs.net.connect
 
 
 	}
-	
+
 }

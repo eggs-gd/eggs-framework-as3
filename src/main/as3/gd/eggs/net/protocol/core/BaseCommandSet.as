@@ -5,29 +5,28 @@ package gd.eggs.net.protocol.core
 	 * ...
 	 * @author Dukobpa3
 	 */
-	public class BaseCommandSet 
+	public class BaseCommandSet
 	{
 		//=====================================================================
 		//	CONSTANTS
 		//=====================================================================
-		
+
 		//=====================================================================
 		//	PARAMETERS
 		//=====================================================================
 		protected var _commandDict:CommandDict = CommandDict.getInstance();
 
 
-		
 		//=====================================================================
 		//	CONSTRUCTOR, INIT
 		//=====================================================================
-		public function BaseCommandSet() 
+		public function BaseCommandSet()
 		{
 			/** Первым делом добавим дефолтный обработчик */
 			_commandDict.addItem(0, "default", BaseProtoData, BaseProtoData, procDefaultData);
-			
+
 		}
-		
+
 		//=====================================================================
 		//	PUBLIC
 		//=====================================================================
@@ -38,19 +37,20 @@ package gd.eggs.net.protocol.core
 		{
 			throw new Error("abstract method, need to override");
 		}
-		
+
 		public function procDefaultData(data:Object):void
 		{
 			throw new Error("Unspecified command, need to override default parser");
 		}
+
 		//=====================================================================
 		//	PRIVATE
 		//=====================================================================
-		
+
 		//=====================================================================
 		//	HANDLERS
 		//=====================================================================
-		
+
 		//=====================================================================
 		//	ACCESSORS
 		//=====================================================================

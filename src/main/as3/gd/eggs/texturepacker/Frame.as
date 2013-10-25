@@ -1,21 +1,20 @@
 package gd.eggs.texturepacker
 {
 	import flash.display.BitmapData;
-
-
 	import flash.geom.Rectangle;
+
 
 	/**
 	 * ...
 	 * @author Dukobpa3
 	 */
-	internal class Frame 
+	internal class Frame
 	{
 
 		//=============================
 		//	CONSTANTS
 		//=============================
-		
+
 		//=============================
 		//	PARAMETERS
 		//=============================
@@ -24,12 +23,12 @@ package gd.eggs.texturepacker
 		//=============================
 		//	CONSTRUCTOR, INIT
 		//=============================
-		public function Frame(bmd:BitmapData, rect:Rectangle) 
+		public function Frame(bmd:BitmapData, rect:Rectangle)
 		{
 			_bmd = bmd;
 			_rect = rect;
 		}
-		
+
 		//=============================
 		//	PUBLIC
 		//=============================
@@ -37,25 +36,29 @@ package gd.eggs.texturepacker
 		{
 			_bmd.dispose();
 		}
+
 		//=============================
 		//	PRIVATE
 		//=============================
-		
+
 		//=============================
 		//	HANDLERS
 		//=============================
-		
+
 		//=============================
 		//	ACCESSORS
 		//=============================
 		/** Битмапдата фрейма */
-		public function get data():BitmapData { return _bmd; }
+		public function get data():BitmapData
+		{ return _bmd; }
+
 		/** прямоугольник на общем листе */
-		public function get rect():Rectangle { return _rect; }
-		
+		public function get rect():Rectangle
+		{ return _rect; }
+
 		//public function get width():Number { return _bmd.width; }
 		//public function get height():Number { return _bmd.height; }
-		
+
 		//=============================
 		//	UTILLS
 		//=============================

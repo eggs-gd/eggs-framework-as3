@@ -1,16 +1,12 @@
 package gd.eggs.mvc.controller
 {
 
+	import flash.events.EventDispatcher;
+
 	import gd.eggs.observer.IObservable;
-
-
 	import gd.eggs.observer.IObserver;
 	import gd.eggs.observer.Notification;
 	import gd.eggs.observer.Observer;
-
-	import flash.display.DisplayObjectContainer;
-	import flash.events.EventDispatcher;
-
 	import gd.eggs.util.IInitialize;
 
 

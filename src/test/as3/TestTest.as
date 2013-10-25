@@ -5,8 +5,6 @@ package
 {
 
 	import org.hamcrest.assertThat;
-
-
 	import org.hamcrest.object.equalTo;
 
 

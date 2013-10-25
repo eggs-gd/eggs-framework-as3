@@ -2,26 +2,27 @@
 {
 	import flash.events.EventDispatcher;
 
+
 	/**
 	 * Класс кеширует векторные анимации в растр.
 	 */
 	public class AnimationCache extends EventDispatcher
 	{
 		public var replaceExisting:Boolean = false;
-		
+
 		private var animations:Object = {};
-		
+
 		private static var instance:AnimationCache;
-		
+
 		//=====================================================================
 		// CONSTRUCTOR
 		//=====================================================================
-		public function AnimationCache() 
+		public function AnimationCache()
 		{
-			if(instance) throw(new Error("AnimationCache is a Singleton. Don't Instantiate!"));
+			if (instance) throw(new Error("AnimationCache is a Singleton. Don't Instantiate!"));
 			instance = this;
-		}	
-		
+		}
+
 		//=====================================================================
 		// PUBLIC
 		//=====================================================================
@@ -33,13 +34,13 @@
 		{
 			return instance ? instance : new AnimationCache();
 		}
-		
+
 		/**
 		 * Кеширует анимацию с заданным именем класса мувика и скейлом
 		 * (растровые тайлы будут уже указанного размера)
-		 * @param	id
-		 * @param	scaleX
-		 * @param	scaleY
+		 * @param    id
+		 * @param    scaleX
+		 * @param    scaleY
 		 * @return
 		 */
 		public function cacheAnimation(id:String, scaleX:Number, scaleY:Number):Animation
@@ -51,42 +52,42 @@
 				animation = new Animation();
 				animation.buildCacheFromLibrary(id, scaleX, scaleY);
 				animations[id] = animation;
-			} 
-			else 
+			}
+			else
 			{
 				animation = animations[id]
 			}
-			
+
 			return animation;
 		}
-		
+
 		/**
 		 * Выдает копию анимации из библиотеки с указанным именем
-		 * @param	id
+		 * @param    id
 		 * @return
 		 */
 		public function getAnimation(id:String):Animation
 		{
-			if (!animations[id]) 
+			if (!animations[id])
 			{
-				trace("MISSING ANIMATION :"+ id);
+				trace("MISSING ANIMATION :" + id);
 				return null;
 			}
-			
+
 			var animation:Animation = new Animation();
 			animation.frames = animations[id].frames;
 			animation.clip = animations[id].clip;
 			animation.gotoAndPlay(1);
-			
+
 			return animation;
 		}
-		
+
 		/**
 		 * Кеширует список анимаций пакетом
-		 * @param	list список анимаций в формате XML. 
-		 * 	<data>
-		 * 		<anim name="className" scaleX="0.5" scaleY="0.5" />
-		 * 	</data>
+		 * @param    list список анимаций в формате XML.
+		 *    <data>
+		 *        <anim name="className" scaleX="0.5" scaleY="0.5" />
+		 *    </data>
 		 */
 		public function addToBulkCache(list:XML):void
 		{
