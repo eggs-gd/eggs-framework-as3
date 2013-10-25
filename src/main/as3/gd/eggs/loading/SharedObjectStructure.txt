@@ -1,47 +1,20 @@
-====
-    Licensed under the MIT License
-
-    Copyright (c) 2013 earwiGGames team
-    http://eggs.gd/
-
-    Permission is hereby granted, free of charge, to any person obtaining
-    a copy of this software and associated documentation files (the
-    "Software"), to deal in the Software without restriction, including
-    without limitation the rights to use, copy, modify, merge, publish,
-    distribute, sublicense, and/or sell copies of the Software, and to
-    permit persons to whom the Software is furnished to do so, subject to
-    the following conditions:
-
-    The above copyright notice and this permission notice shall be
-    included in all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-====
-
-
-сами лоадеры лежат вот здесь:
-слеши в имени объекта заставляют создавать отдельные папки. По факту в папке шаредОбжекта создается дерево папок
-а внутри файл с именем loading.sol
+�?ами лоадеры лежат вот зде�?ь:
+�?леши в имени объекта за�?тавл�?ют �?оздавать отдельные папки. По факту в папке шаредОбжекта �?оздает�?�? дерево папок
+а внутри файл �? именем loading.sol
 sharedObject = SharedObject.getLocal("/addictedCompany/" + APP_NAME + "/loading", "/");
 
-в самом обжекте структура следующая:
+в �?амом обжекте �?труктура �?ледующа�?:
 
-sharedObject.data.<loaderName>.contents[url] - contents - это словарь контента с ключами по урлу.
+sharedObject.data.<loaderName>.contents[url] - contents - �?то �?ловарь контента �? ключами по урлу.
 
-БулкЛоадер создается как обычно.
-Прикрутил синглтоновский ГетЛоадер, который если итема нету - создает с дефолтными параметрами.
-Если важно поменять какой-то параметр лучше поставить его руками после того как получили инстанс.
+БулкЛоадер �?оздает�?�? как обычно.
+Прикрутил �?инглтонов�?кий ГетЛоадер, который е�?ли итема нету - �?оздает �? дефолтными параметрами.
+Е�?ли важно помен�?ть какой-то параметр лучше по�?тавить его руками по�?ле того как получили ин�?тан�?.
 
 в метод add() добавил еще один параметр "shared" (BulkLoader.SHARED).
-Если этот параметр стоит - то LoadingItem создается с типом SharedItem - это модифицированный BinaryItem.
-Обычный лоадер, но перд тем как начинать загрузку проверяет наличие урла в шаредОбжекте, и если таковой есть,
-то никакой загрузки не происходит, просто диспатчатся нужные события.
+Е�?ли �?тот параметр �?тоит - то LoadingItem �?оздает�?�? �? типом SharedItem - �?то модифицированный BinaryItem.
+Обычный лоадер, но перд тем как начинать загрузку провер�?ет наличие урла в шаредОбжекте, и е�?ли таковой е�?ть,
+то никакой загрузки не прои�?ходит, про�?то ди�?патчат�?�? нужные �?обыти�?.
 
-Таким образом эмулируется работа булкЛоадера как было раньше. Работают все подписки на события.
-В шаредОбжекте хранится только словарь контента с ключами по урлу.
+Таким образом �?мулирует�?�? работа булкЛоадера как было раньше. Работают в�?е подпи�?ки на �?обыти�?.
+В шаредОбжекте хранит�?�? только �?ловарь контента �? ключами по урлу.

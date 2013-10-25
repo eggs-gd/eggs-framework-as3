@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿/*
 
  The MIT License,
@@ -43,7 +18,7 @@ package  gd.eggs.util
 
 
 	/**
-	 * кружочки по радиусу, по таймеру меняем альфу по кругу
+	 * кружочки по радиу�?у, по таймеру мен�?ем альфу по кругу
 	 * @author silin
 	 */
 	public class RoundPreloader extends Sprite
@@ -55,10 +30,10 @@ package  gd.eggs.util
 
 		/**
 		 * constructor
-		 * @param    size        размер основоного кргуга
+		 * @param    size        размер о�?новоного кргуга
 		 * @param    color        цвет
 		 * @param    alpha        альфа
-		 * @param    delay        задержка перестановки альфы кружков
+		 * @param    delay        задержка пере�?тановки альфы кружков
 		 */
 		public function RoundPreloader(size:int = 100, color:int = 0x808080, alpha:Number = 0.8, delay:int = 80)
 		{
@@ -113,7 +88,7 @@ package  gd.eggs.util
 		}
 
 		/**
-		 * надпись (по центру)
+		 * надпи�?ь (по центру)
 		 */
 		public function get label():String
 		{ return _label.text; }

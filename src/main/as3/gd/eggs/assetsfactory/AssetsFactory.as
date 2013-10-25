@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.assetsfactory
 {
 	import flash.events.EventDispatcher;
@@ -37,23 +12,23 @@
 	//
 	//=========================================================================
 	/**
-	 * Отправляется после декодирования всех полученных данных
-	 * и размещения их в свойстве data объекта
+	 * Отправл�?ет�?�? по�?ле декодировани�? в�?ех полученных данных
+	 * и размещени�? их в �?вой�?тве data объекта
 	 */
 	[Event(name="complete", type="gd.eggs.assetsfactory.FactoryEvent")]
 
 	/**
-	 * Отправляется в случае получения данных в ходе операции загрузки.
+	 * Отправл�?ет�?�? в �?лучае получени�? данных в ходе операции загрузки.
 	 */
 	[Event(name="progress", type="gd.eggs.assetsfactory.FactoryEvent")]
 
 	/**
-	 * Отправляется в случае возникновения ошибки в процессе загрузки.
+	 * Отправл�?ет�?�? в �?лучае возникновени�? ошибки в проце�?�?е загрузки.
 	 */
 	[Event(name="itemError", type="gd.eggs.assetsfactory.FactoryEvent")]
 
 	/**
-	 * Отправляется после получения и декодирования данных в каком-то из ItemLoader.
+	 * Отправл�?ет�?�? по�?ле получени�? и декодировани�? данных в каком-то из ItemLoader.
 	 */
 	[Event(name="itemComplete", type="gd.eggs.assetsfactory.FactoryEvent")]
 
@@ -65,22 +40,22 @@
 		//=====================================================================
 		//		CONSTANTS
 		//=====================================================================
-		/** Дефолтное количество одновременных закачек */
+		/** Дефолтное количе�?тво одновременных закачек */
 		public static const DEFAULT_NUM_CONNECTIONS:int = 5;
 
 		//=====================================================================
 		//		PRIVATE
 		//=====================================================================
-		/** Колличество одновременных закачек */
+		/** Колличе�?тво одновременных закачек */
 		private var _maxConnections:int;
 
-		/** Список лоадеров которые надо загрузить */
+		/** Спи�?ок лоадеров которые надо загрузить */
 		private var _loadingQueue:Vector.<ItemLoader>;
 
-		/** Список активных на текущий момент лоадеров */
+		/** Спи�?ок активных на текущий момент лоадеров */
 		private var _activeItems:Vector.<ItemLoader>;
 
-		/** статус загрузки: загружается, пауза, отменено. */
+		/** �?тату�? загрузки: загружает�?�?, пауза, отменено. */
 		private var _state:String;
 
 		/** Словарь контента */
@@ -99,13 +74,13 @@
 		//		PUBLIC
 		//=====================================================================
 		//-----------------------------
-		//	Функции управления итемами
+		//	Функции управлени�? итемами
 		//-----------------------------
 		/**
-		 * ДОбавляет итем в очередь
-		 * и запускает загрузку очереди, если она еще не запущена
+		 * ДОбавл�?ет итем в очередь
+		 * и запу�?кает загрузку очереди, е�?ли она еще не запущена
 		 * @param    url урл который надо загрузить
-		 * @param    key ключ по которому можно будет достать итем из базы, если не указан то ставится урл
+		 * @param    key ключ по которому можно будет до�?тать итем из базы, е�?ли не указан то �?тавит�?�? урл
 		 * @return
 		 */
 		public function add(url:String, key:Object = null):ItemLoader
@@ -127,12 +102,12 @@
 		}
 
 		//-----------------------------
-		//	Функции управления контентом
+		//	Функции управлени�? контентом
 		//-----------------------------
 		/**
 		 * Выдает загруженный контент
-		 * @param    key ключ по которому объект зарегистрирован в базе
-		 * @param    type тип к которому нужно попытаться перекастовать объект
+		 * @param    key ключ по которому объект зареги�?трирован в базе
+		 * @param    type тип к которому нужно попытать�?�? перека�?товать объект
 		 * @return
 		 */
 		public function getContent(key:Object, type:Class):Object
@@ -142,7 +117,7 @@
 		}
 
 		//-----------------------------
-		//	Функции управления загрузкой
+		//	Функции управлени�? загрузкой
 		//-----------------------------
 		public function start():void
 		{

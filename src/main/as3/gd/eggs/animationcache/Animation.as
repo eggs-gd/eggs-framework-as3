@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.animationcache
 {
 
@@ -64,7 +39,7 @@
 		// CONSTRUCTOR
 		//=====================================================================
 		/**
-		 * Делает анимаци из класса загруженной флешки
+		 * Делает анимаци из кла�?�?а загруженной флешки
 		 * @param scaleX
 		 * @param scaleY
 		 * @param name
@@ -98,7 +73,7 @@
 		}
 
 		/**
-		 * Проигрывает анимацию циклически
+		 * Проигрывает анимацию цикличе�?ки
 		 */
 		public function play():void
 		{
@@ -116,7 +91,7 @@
 		}
 
 		/**
-		 * Переход к кадру и остановка
+		 * Переход к кадру и о�?тановка
 		 * @param    frame
 		 */
 		public function gotoAndStop(frame:int):void
@@ -136,7 +111,7 @@
 		}
 
 		/**
-		 * Переход к случайному кадру и проигрывание
+		 * Переход к �?лучайному кадру и проигрывание
 		 */
 		public function gotoAndPlayRandomFrame():void
 		{
@@ -144,7 +119,7 @@
 		}
 
 		/**
-		 * Переход на след кадр
+		 * Переход на �?лед кадр
 		 */
 		public function nextFrame():void
 		{
@@ -160,7 +135,7 @@
 		}
 
 		/**
-		 * Перезаполняет содержимое кеша заново.
+		 * Перезаполн�?ет �?одержимое кеша заново.
 		 */
 		public function update():void
 		{
@@ -192,8 +167,8 @@
 		}
 
 		/**
-		 * Проходит по всем детям и прокручивает на кадр с указанным номером,
-		 * нужно в процессе кеширования. Утилитная функция.
+		 * Проходит по в�?ем дет�?м и прокручивает на кадр �? указанным номером,
+		 * нужно в проце�?�?е кешировани�?. Утилитна�? функци�?.
 		 * @param    m
 		 */
 		private function makeAllChildrenNextFrame(m:MovieClip):void
@@ -227,7 +202,7 @@
 		//=====================================================================
 		// ACCESSORS
 		//=====================================================================
-		/** Проигрывается ли флешка в данный момент */
+		/** Проигрывает�?�? ли флешка в данный момент */
 		public function get playing():Boolean
 		{ return _playing; }
 
@@ -239,13 +214,13 @@
 		public function get currentFrame():int
 		{ return _currentFrame; }
 
-		/** Масив(вектор) фреймов, нужен для клонирования */
+		/** Ма�?ив(вектор) фреймов, нужен дл�? клонировани�? */
 		internal function get frames():Vector.<AnimationFrame>
 		{ return _frames; }
 
 		internal function set frames(value:Vector.<AnimationFrame>):void { _frames = value; }
 
-		/** исходный мувиклип, нужен для клонирования */
+		/** и�?ходный мувиклип, нужен дл�? клонировани�? */
 		internal function get clip():MovieClip
 		{ return _clip; }
 

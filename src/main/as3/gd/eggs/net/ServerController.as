@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.net
 {
 	import gd.eggs.mvc.controller.BaseController;
@@ -44,29 +19,29 @@
 	 * ...
 	 * @author Dukobpa3
 	 */
-		// TODO: Возможности контроллера не используются, перепилить под нечто другое, придумать генерящийся одминкой сендер
+		// TODO: Возможно�?ти контроллера не и�?пользуют�?�?, перепилить под нечто другое, придумать генер�?щий�?�? одминкой �?ендер
 	public class ServerController extends BaseController
 	{
 		public static var SERVER_CONNECTED:String = "serverConnected";
 		public static var SERVER_DISCONNECTED:String = "serverDisconnected";
 		public static var SERVER_SEND_COMMAND:String = "serverSendCommand";
 
-		/** Собственно коннектор
-		 * TODO: перепилить под несколько коннекторов, щас похуй, рботаем тока с сокетом */
+		/** Соб�?твенно коннектор
+		 * TODO: перепилить под не�?колько коннекторов, ща�? похуй, рботаем тока �? �?окетом */
 		private var _connection:SocketConnect;
 
 		/**
-		 * 1. При отправке пакует нечто адекватное в неведомую серверную хуйню(ByteArray, String),
-		 * 2. При получении распаковывает неведомую серверную хуйню в нечто адекватное
+		 * 1. При отправке пакует нечто адекватное в неведомую �?ерверную хуйню(ByteArray, String),
+		 * 2. При получении ра�?паковывает неведомую �?ерверную хуйню в нечто адекватное
 		 * контроллер не знает ни первый ни второй формат,
-		 * Коннектор соответственно тоже
+		 * Коннектор �?оответ�?твенно тоже
 		 */
 		private var _decoder:IMessageDecoder;
 
-		/** Словарь серверных команд */
+		/** Словарь �?ерверных команд */
 		private var _commandDict:CommandDict;
 
-		/** Очередь сообщений */
+		/** Очередь �?ообщений */
 		private var _msgPool:Vector.<MessageBase>;
 
 		public function ServerController(decoder:IMessageDecoder)
@@ -95,7 +70,7 @@
 		}
 
 		/**
-		 * Подписка на нужные оповещения
+		 * Подпи�?ка на нужные оповещени�?
 		 * @return
 		 */
 		override public function listNotifications():Array
@@ -105,7 +80,7 @@
 		}
 
 		/**
-		 * Обработка оповещения note
+		 * Обработка оповещени�? note
 		 * @param    note
 		 */
 		override public function update(note:Notification):void
@@ -122,7 +97,7 @@
 		//	CONNECT
 		//-----------------------------
 		/**
-		 * Инициализируем подключение, подписываемся на события подключения
+		 * Инициализируем подключение, подпи�?ываем�?�? на �?обыти�? подключени�?
 		 */
 		public function connect(connectConfig:ServerConnectConfig):void
 		{
@@ -134,7 +109,7 @@
 		//=====================================================================
 		private function addMessage(body:Object):void
 		{
-			var msg:MessageBase = new MessageBase(); // пустой месадж
+			var msg:MessageBase = new MessageBase(); // пу�?той ме�?адж
 
 			var id:int = body["id"];
 			var name:String = body["name"];
@@ -143,18 +118,18 @@
 			var cmdDictItem:CommandDictItem;
 			if (id)
 			{
-				cmdDictItem = _commandDict.getItemById(id); // получили нужный тип из словаря
+				cmdDictItem = _commandDict.getItemById(id); // получили нужный тип из �?ловар�?
 			}
 			else if (name && name != "")
 			{
-				cmdDictItem = _commandDict.getItemByName(name); // получили нужный тип из словаря
+				cmdDictItem = _commandDict.getItemByName(name); // получили нужный тип из �?ловар�?
 			}
 			else
 			{
 				cmdDictItem = _commandDict.getItemById(0);
 			}
 
-			var typedItem:BaseProtoData = new cmdDictItem.dataToServer(); // создали пустой инстанс нужного типа
+			var typedItem:BaseProtoData = new cmdDictItem.dataToServer(); // �?оздали пу�?той ин�?тан�? нужного типа
 
 			msg.commandId = cmdDictItem.id;
 			msg.data = typedItem.fromObject(params).writeBSON(); // заполнили реальными данными
@@ -181,8 +156,8 @@
 
 		private function processMsg(msg:MessageBase):void
 		{
-			var cmdDictItem:CommandDictItem = _commandDict.getItemById(msg.commandId); // получили нужный тип из словаря
-			var typedItem:BaseProtoData = new cmdDictItem.dataToClient(); // создали пустой инстанс нужного типа;
+			var cmdDictItem:CommandDictItem = _commandDict.getItemById(msg.commandId); // получили нужный тип из �?ловар�?
+			var typedItem:BaseProtoData = new cmdDictItem.dataToClient(); // �?оздали пу�?той ин�?тан�? нужного типа;
 
 			if (!cmdDictItem) // дефолтный обработчик
 			{
@@ -199,7 +174,7 @@
 				var errorObject:ErrorData = new ErrorData();
 				errorObject.readBSON(msg.data);
 			}
-			cmdDictItem.callBack(msg.status, typedItem); // выполнили коллбек с типизированными данными
+			cmdDictItem.callBack(msg.status, typedItem); // выполнили коллбек �? типизированными данными
 		}
 
 		//=====================================================================
@@ -226,14 +201,14 @@
 		}
 
 		/**
-		 * Обработка получения данных с сервера.
-		 * получем событие. Внутри него есть полученные данные.
-		 * далее смотрим есть ли ошибки. если есть, то обрабатываем и ретурн.
-		 * если нету ошибок смотрим команду. Некоторые команды требуют отправки дополнительных нотификаций.
-		 * Но нотификации сразу не отправляем а добавляем в массив.
-		 * Некоторые команды требуют уникального парсинга. В таком случаем ставим ключ needUpdate = false, чтобы стандартный парсер не запускался
-		 * Далее парсим стандартным парсером.
-		 * Потом когда распарсили полученные данные - отправляем нотификации из списка.
+		 * Обработка получени�? данных �? �?ервера.
+		 * получем �?обытие. Внутри него е�?ть полученные данные.
+		 * далее �?мотрим е�?ть ли ошибки. е�?ли е�?ть, то обрабатываем и ретурн.
+		 * е�?ли нету ошибок �?мотрим команду. �?екоторые команды требуют отправки дополнительных нотификаций.
+		 * �?о нотификации �?разу не отправл�?ем а добавл�?ем в ма�?�?ив.
+		 * �?екоторые команды требуют уникального пар�?инга. В таком �?лучаем �?тавим ключ needUpdate = false, чтобы �?тандартный пар�?ер не запу�?кал�?�?
+		 * Далее пар�?им �?тандартным пар�?ером.
+		 * Потом когда ра�?пар�?или полученные данные - отправл�?ем нотификации из �?пи�?ка.
 		 * @param    e
 		 */
 		private function onReceiveData(event:ConnectionEvent):void

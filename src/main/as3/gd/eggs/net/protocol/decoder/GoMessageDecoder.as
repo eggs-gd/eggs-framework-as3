@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.net.protocol.decoder
 {
 	import flash.events.EventDispatcher;
@@ -63,9 +38,9 @@
 		//	PUBLIC
 		//=====================================================================
 		/**
-		 * Парсит полученные данные
+		 * Пар�?ит полученные данные
 		 * @param    command
-		 * @return Статус результата выполнения
+		 * @return Стату�? результата выполнени�?
 		 */
 		public function parse(command:Object):void
 		{
@@ -81,27 +56,27 @@
 
 			//Cc.logch("-- decoder", "parse: " + String(bytes.length));
 
-			_buffer.position = _buffer.length; // передвигаем курсор в конец
-			_buffer.writeBytes(bytes); // дописываем в буфер то что получили
+			_buffer.position = _buffer.length; // передвигаем кур�?ор в конец
+			_buffer.writeBytes(bytes); // допи�?ываем в буфер то что получили
 			bytes.clear(); // очищаем то что получили
 			_buffer.position = 0;
 
-			if (_size == SIZE_NONE) // если размер не считали
+			if (_size == SIZE_NONE) // е�?ли размер не �?читали
 			{
-				if (_buffer.length < 4) // если в буфере не достаточно байтов для получения длины
+				if (_buffer.length < 4) // е�?ли в буфере не до�?таточно байтов дл�? получени�? длины
 				{
-					_buffer.position = 0; // сдвигаем курсор в началао и выходим из обработки
+					_buffer.position = 0; // �?двигаем кур�?ор в началао и выходим из обработки
 					dispatchEvent(new DecoderEvent(ParseStatus.RECEIVING_HEADER));
 					return;
 				}
-				_size = _buffer.readInt(); // если байтов для получения длины хватает - читаем ее
+				_size = _buffer.readInt(); // е�?ли байтов дл�? получени�? длины хватает - читаем ее
 			}
 			else
 			{
 				_buffer.position = 4;
 			}
 
-			if (_buffer.bytesAvailable < _size) // если от курсора до конца меньше байт чем указано в длине
+			if (_buffer.bytesAvailable < _size) // е�?ли от кур�?ора до конца меньше байт чем указано в длине
 			{
 				dispatchEvent(new DecoderEvent(ParseStatus.IN_PROGRESS)); // ждем еще данных
 				return;
@@ -110,30 +85,30 @@
 			{
 				var data:ByteArray = new ByteArray();
 				data.endian = Endian.LITTLE_ENDIAN;
-				data.writeBytes(_buffer, _buffer.position, _size);// всунем хвост буффера в данные
+				data.writeBytes(_buffer, _buffer.position, _size);// в�?унем хво�?т буффера в данные
 				//Cc.logch("-- connector", "parsePackage: " + String(_size));
 
 				_buffer.position += _size;
 
 				_size = SIZE_NONE;
 
-				parsePackage(data); // парсим данные
-				data.clear(); // дальше обнуляем, воспользуемся повторно в качестве нового месаджа
+				parsePackage(data); // пар�?им данные
+				data.clear(); // дальше обнул�?ем, во�?пользуем�?�? повторно в каче�?тве нового ме�?аджа
 
 				if (_buffer.bytesAvailable)
 				{
-					data.writeBytes(_buffer, _buffer.position);  // всунем в данные хвост буффера
+					data.writeBytes(_buffer, _buffer.position);  // в�?унем в данные хво�?т буффера
 					data.position = 0;
-					_buffer.clear(); // очистим буффер (в след цикле хвост в него допишется)
+					_buffer.clear(); // очи�?тим буффер (в �?лед цикле хво�?т в него допишет�?�?)
 					//Cc.logch("-- decoder", "2 parsePackage: " + String(data.length));
 					parse(data);
 				}
-				_buffer.clear(); // очистим буффер (в след цикле хвост в него допишется)
+				_buffer.clear(); // очи�?тим буффер (в �?лед цикле хво�?т в него допишет�?�?)
 			}
 		}
 
 		/**
-		 * Получает месадж, делает из него байтарей
+		 * Получает ме�?адж, делает из него байтарей
 		 * @param    msg is MessageBase
 		 * @return ByteArray
 		 */

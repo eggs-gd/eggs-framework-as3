@@ -1,35 +1,10 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.animationcache
 {
 	import flash.events.EventDispatcher;
 
 
 	/**
-	 * Класс кеширует векторные анимации в растр.
+	 * Кла�?�? кеширует векторные анимации в ра�?тр.
 	 */
 	public class AnimationCache extends EventDispatcher
 	{
@@ -52,7 +27,7 @@
 		// PUBLIC
 		//=====================================================================
 		/**
-		 * Выдает инстанс библиотеки
+		 * Выдает ин�?тан�? библиотеки
 		 * @return
 		 */
 		public static function getInstance():AnimationCache
@@ -61,8 +36,8 @@
 		}
 
 		/**
-		 * Кеширует анимацию с заданным именем класса мувика и скейлом
-		 * (растровые тайлы будут уже указанного размера)
+		 * Кеширует анимацию �? заданным именем кла�?�?а мувика и �?кейлом
+		 * (ра�?тровые тайлы будут уже указанного размера)
 		 * @param    id
 		 * @param    scaleX
 		 * @param    scaleY
@@ -70,7 +45,7 @@
 		 */
 		public function cacheAnimation(id:String, scaleX:Number, scaleY:Number):Animation
 		{
-			// TODO придумать что-то чтобы можно было кешировать одну и ту же анимацию с разными скейлами
+			// TODO придумать что-то чтобы можно было кешировать одну и ту же анимацию �? разными �?кейлами
 			var animation:Animation;
 			if (!animations[id] || replaceExisting)
 			{
@@ -87,7 +62,7 @@
 		}
 
 		/**
-		 * Выдает копию анимации из библиотеки с указанным именем
+		 * Выдает копию анимации из библиотеки �? указанным именем
 		 * @param    id
 		 * @return
 		 */
@@ -108,8 +83,8 @@
 		}
 
 		/**
-		 * Кеширует список анимаций пакетом
-		 * @param    list список анимаций в формате XML.
+		 * Кеширует �?пи�?ок анимаций пакетом
+		 * @param    list �?пи�?ок анимаций в формате XML.
 		 *    <data>
 		 *        <anim name="className" scaleX="0.5" scaleY="0.5" />
 		 *    </data>
@@ -119,7 +94,7 @@
 			for each(var anim:XML in list.anim)
 			{
 				cacheAnimation(anim.@name, parseFloat(anim.@scaleX) || 1, parseFloat(anim.@scaleY) || 1);
-				//TODO добавить диспатчи событий о прогрессе при групповой загрузке
+				//TODO добавить ди�?патчи �?обытий о прогре�?�?е при групповой загрузке
 			}
 		}
 	}

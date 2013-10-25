@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.observer
 {
 	/**
@@ -31,11 +6,11 @@
 	 */
 	public class Observer
 	{
-		//единственный экземпляр класса
+		//един�?твенный �?кземпл�?р кла�?�?а
 		private static var _instance:Observer = null;
 
 
-		//массив по ключу Notifications.name всех нотификаций и подписанных на них обсерверов
+		//ма�?�?ив по ключу Notifications.name в�?ех нотификаций и подпи�?анных на них об�?ерверов
 		private var notifications:Object = {};
 
 		public function Observer()
@@ -47,7 +22,7 @@
 		}
 
 		/**
-		 * Получение экземпляра класса
+		 * Получение �?кземпл�?ра кла�?�?а
 		 * @return
 		 */
 		public static function getInstance():Observer
@@ -60,7 +35,7 @@
 		}
 
 		/**
-		 * Регистрация нового обсервера
+		 * Реги�?траци�? нового об�?ервера
 		 * @param    value
 		 */
 		public function registerObserver(value:IObserver):void
@@ -84,7 +59,7 @@
 		}
 
 		/**
-		 * Оповещение всех обсерверов, подписанных на note.name
+		 * Оповещение в�?ех об�?ерверов, подпи�?анных на note.name
 		 * @param    note
 		 */
 		public function notifyObservers(note:Notification):void

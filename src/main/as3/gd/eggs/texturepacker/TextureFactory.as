@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.texturepacker
 {
 	import flash.display.BitmapData;
@@ -36,8 +11,8 @@
 
 
 	/**
-	 * Фабрика текстур. Кеширует новую текстуру из мувиклипа, потом ее же может выдать по запросу.
-	 * Поддерживает групповое кеширование из хмл списка.
+	 * Фабрика тек�?тур. Кеширует новую тек�?туру из мувиклипа, потом ее же может выдать по запро�?у.
+	 * Поддерживает групповое кеширование из хмл �?пи�?ка.
 	 * @author Dukobpa3
 	 */
 	public class TextureFactory
@@ -45,30 +20,30 @@
 		//=============================
 		//	PARAMETERS
 		//{============================
-		/** Единственный экземпляр */
+		/** Един�?твенный �?кземпл�?р */
 		private static var _instance:TextureFactory;
 
-		/** Массив листов */
+		/** Ма�?�?ив ли�?тов */
 		private var _textures:Vector.<BitmapData> = new Vector.<BitmapData>();
 
-		/** Словарь атласов */
+		/** Словарь атла�?ов */
 		private var _atlases:Object = { }; // {<animName>:BmdAtlas}
 
-		/** Индекс текущего неазполненного листа тайлов */
+		/** Индек�? текущего неазполненного ли�?та тайлов */
 		private var _currenSheet:int;
-		/** Текущая раскладка тайлов */
+		/** Текуща�? ра�?кладка тайлов */
 		private var _currentTiles:Array;
 		/** Текущие тайлы */
 		private var _currentImages:Array;
 		/** Стартовый тайл текущей обрабатываемой анимации */
 		private var _currentTile:int;
-		/** Текущая нода */
+		/** Текуща�? нода */
 		private var _currentNode:AtlasNode;
 		//}
 		//=============================
 		//	CONSTRUCTOR, INIT
 		//{============================
-		/** Конструктор. Синглтон, так что нефиг его дергать. */
+		/** Кон�?труктор. Синглтон, так что нефиг его дергать. */
 		public function TextureFactory()
 		{
 			if (_instance) throw(new Error("TextureFactory is a Singleton. Don't Instantiate!"));
@@ -82,7 +57,7 @@
 		}
 
 		/**
-		 * Выдает екземпляр "фабрики текстур"
+		 * Выдает екземпл�?р "фабрики тек�?тур"
 		 * @return
 		 */
 		public static function getInstance():TextureFactory
@@ -95,9 +70,9 @@
 		//	PUBLIC
 		//{============================
 		/**
-		 * Создает текстурный атлас из мувика в библиотеке (getChildByName()) и его же (атлас) и возвращает
-		 * Автоматом скейлит до указанных размеров и сохраняет уже с измененными размерами
-		 * @param    id имя класса мувика
+		 * Создает тек�?турный атла�? из мувика в библиотеке (getChildByName()) и его же (атла�?) и возвращает
+		 * �?втоматом �?кейлит до указанных размеров и �?охран�?ет уже �? измененными размерами
+		 * @param    id им�? кла�?�?а мувика
 		 * @param    scaleX
 		 * @param    scaleY
 		 * @return
@@ -111,8 +86,8 @@
 		}
 
 		/**
-		 * Выдает текстурный атлас из кеша
-		 * @param    id имя класса мувика из библиотеки
+		 * Выдает тек�?турный атла�? из кеша
+		 * @param    id им�? кла�?�?а мувика из библиотеки
 		 * @return
 		 */
 		public function getTextureAtlas(id:String):TextureAtlas
@@ -130,8 +105,8 @@
 		}
 
 		/**
-		 * Кеширует список анимаций пакетом
-		 * @param    list список анимаций в формате XML.
+		 * Кеширует �?пи�?ок анимаций пакетом
+		 * @param    list �?пи�?ок анимаций в формате XML.
 		 *    <data>
 		 *        <anim name="className" scaleX="0.5" scaleY="0.5" />
 		 *    </data>
@@ -141,7 +116,7 @@
 			for each(var anim:XML in list.anim)
 			{
 				createTextureAtlas(anim.@name, parseFloat(anim.@scaleX), parseFloat(anim.@scaleY));
-				//TODO добавить диспатчи событий о прогрессе при групповой загрузке
+				//TODO добавить ди�?патчи �?обытий о прогре�?�?е при групповой загрузке
 			}
 		}
 
@@ -150,7 +125,7 @@
 		// PRIVATE
 		//=====================================================================
 		/**
-		 * Делает атлас из класса загруженной флешки
+		 * Делает атла�? из кла�?�?а загруженной флешки
 		 * @param    params
 		 */
 		private function createTextureAtlasFromLibrary(id:String, scaleX:Number, scaleY:Number):BmdAtlas
@@ -158,7 +133,7 @@
 			var clip:MovieClip = new (getDefinitionByName(id) as Class)();
 
 			var framesArr:Array = drawTilesFromLibrary(clip, scaleX, scaleY);
-			var finRect:Rectangle = framesArr.shift(); // в старлинге у мувика у вех кадров одинаковый ректангл должен быть.
+			var finRect:Rectangle = framesArr.shift(); // в �?тарлинге у мувика у вех кадров одинаковый ректангл должен быть.
 
 			_currentTile = _currentTiles.length;
 
@@ -206,9 +181,9 @@
 		}
 
 		/**
-		 * Создает массив растровых тайлов из анимации
-		 * первым элементом массива идет ректангл анимашки
-		 * (особенность starling.display.MovieClip - все фреймы этого мувика должны быть одинакового размера)
+		 * Создает ма�?�?ив ра�?тровых тайлов из анимации
+		 * первым �?лементом ма�?�?ива идет ректангл анимашки
+		 * (о�?обенно�?ть starling.display.MovieClip - в�?е фреймы �?того мувика должны быть одинакового размера)
 		 * @param    clip
 		 * @param    scaleX
 		 * @param    scaleY
@@ -219,8 +194,8 @@
 			var finRect:Rectangle = new Rectangle();
 			var rect:Rectangle;
 			var offset:int;
-			var framesArr:Array = [finRect] // первым элементом пихаю ректангл, остальные фремы. 
-			//в ректангле максимальные границы мувика по всем кадрам.
+			var framesArr:Array = [finRect] // первым �?лементом пихаю ректангл, о�?тальные фремы. 
+			//в ректангле мак�?имальные границы мувика по в�?ем кадрам.
 			var frame:Frame;
 
 			clip.scaleX = scaleX;
@@ -258,8 +233,8 @@
 		}
 
 		/**
-		 * Проходит по всем детям и прокручивает на кадр с указанным номером,
-		 * нужно в процессе кеширования. Утилитная функция.
+		 * Проходит по в�?ем дет�?м и прокручивает на кадр �? указанным номером,
+		 * нужно в проце�?�?е кешировани�?. Утилитна�? функци�?.
 		 * @param    m
 		 * @param    f
 		 */
@@ -277,7 +252,7 @@
 		}
 
 		/**
-		 * Распихивает массив тайлов по листу
+		 * Ра�?пихивает ма�?�?ив тайлов по ли�?ту
 		 * @param    tiles
 		 * @return
 		 */
@@ -288,13 +263,13 @@
 
 			for (var i:int = 0; i < tiles.length; i++)
 			{
-				// пытаемся вставить картинку в атлас
+				// пытаем�?�? в�?тавить картинку в атла�?
 				var n:AtlasNode = node.insert(tiles[i].data || tiles[i]);
-				if (n) // нам это удалось
+				if (n) // нам �?то удало�?ь
 				{
-					nodesArr.push(n); // сохраняем область в финальный массив
+					nodesArr.push(n); // �?охран�?ем обла�?ть в финальный ма�?�?ив
 				}
-				else // не влазит на текущий лист
+				else // не влазит на текущий ли�?т
 				{
 					return false;
 				}
@@ -304,11 +279,11 @@
 		}
 
 		/**
-		 * Отрисовывает субтекстуры текущего текстурного атласа в лист
+		 * Отри�?овывает �?убтек�?туры текущего тек�?турного атла�?а в ли�?т
 		 */
 		private function drawTilesToSheet():void
 		{
-			//Теперь нам осталось только отрисовать все картинки из _currentTiles[x].data в координаты _currentTiles[x].rect.
+			//Теперь нам о�?тало�?ь только отри�?овать в�?е картинки из _currentTiles[x].data в координаты _currentTiles[x].rect.
 			var bmd:BitmapData = _textures[_currenSheet];
 			bmd.lock();
 
@@ -323,8 +298,8 @@
 		}
 
 		/**
-		 * Утилитка для формирования строки из инта
-		 * дополняет нулями вначало до указанного кол-ва знаков
+		 * Утилитка дл�? формировани�? �?троки из инта
+		 * дополн�?ет нул�?ми вначало до указанного кол-ва знаков
 		 * @param    str
 		 * @param    num
 		 * @return
@@ -336,7 +311,7 @@
 			return str;
 		}
 
-		/** Для теста, потом убрать */
+		/** Дл�? те�?та, потом убрать */
 		public function get textures():Vector.<BitmapData>
 		{ return _textures; }
 

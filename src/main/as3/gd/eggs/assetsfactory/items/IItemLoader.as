@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.assetsfactory.items
 {
 	import flash.net.URLRequest;
@@ -30,52 +5,52 @@
 
 
 	/**
-	 * Интерфейс класса лоадера элемента.
-	 * Все уникальные лоадеры(для картинок, для звука, для байтов, текста) его имплементируют.
+	 * Интерфей�? кла�?�?а лоадера �?лемента.
+	 * В�?е уникальные лоадеры(дл�? картинок, дл�? звука, дл�? байтов, тек�?та) его имплементируют.
 	 * @author Dukobpa3
 	 */
 
 
 	/**
-	 * Отправляется после декодирования всех полученных данных
-	 * и размещения их в свойстве data объекта
+	 * Отправл�?ет�?�? по�?ле декодировани�? в�?ех полученных данных
+	 * и размещени�? их в �?вой�?тве data объекта
 	 */
 	[Event(name="complete", type="gd.eggs.assetsfactory.items.ItemEvent")]
 
 	/**
-	 * Отправляется, если вызов метода ItemLoader.load()
-	 * инициирует попытку доступа к данным по протоколу HTTP.
+	 * Отправл�?ет�?�?, е�?ли вызов метода ItemLoader.load()
+	 * инициирует попытку до�?тупа к данным по протоколу HTTP.
 	 */
 	[Event(name="httpStatus", type="gd.eggs.assetsfactory.items.ItemEvent")]
 
 	/**
-	 * Отправляется, если вызов метода ItemLoader.load()
-	 * приводит к неустранимой ошибке, прекращающей загрузку.
+	 * Отправл�?ет�?�?, е�?ли вызов метода ItemLoader.load()
+	 * приводит к неу�?транимой ошибке, прекращающей загрузку.
 	 */
 	[Event(name="ioError", type="gd.eggs.assetsfactory.items.ItemEvent")]
 
 	/**
-	 * Отправляется, когда операция загрузки начинается после вызова метода ItemLoader.load().
+	 * Отправл�?ет�?�?, когда операци�? загрузки начинает�?�? по�?ле вызова метода ItemLoader.load().
 	 */
 	[Event(name="open", type="gd.eggs.assetsfactory.items.ItemEvent")]
 
 	/**
-	 * Передается объектом ItemLoader каждый раз, когда загруженный объект
-	 * удаляется с помощью метода unload() объекта ItemLoader,
-	 * а также когда выполняется повторная загрузка тем же объектом LoadingItem,
-	 * и перед началом загрузки удаляется исходное содержимое.
+	 * Передает�?�? объектом ItemLoader каждый раз, когда загруженный объект
+	 * удал�?ет�?�? �? помощью метода unload() объекта ItemLoader,
+	 * а также когда выполн�?ет�?�? повторна�? загрузка тем же объектом LoadingItem,
+	 * и перед началом загрузки удал�?ет�?�? и�?ходное �?одержимое.
 	 */
 	[Event(name="unload", type="gd.eggs.assetsfactory.items.ItemEvent")]
 
 	/**
-	 * Отправляется в случае получения данных в ходе операции загрузки.
+	 * Отправл�?ет�?�? в �?лучае получени�? данных в ходе операции загрузки.
 	 */
 	[Event(name="progress", type="gd.eggs.assetsfactory.items.ItemEvent")]
 
 	/**
-	 * Отправляется, если путем вызова метода ItemLoader.load()
-	 * предпринимается попытка загрузить данные с сервера,
-	 * расположенного за пределами изолированной среды.
+	 * Отправл�?ет�?�?, е�?ли путем вызова метода ItemLoader.load()
+	 * предпринимает�?�? попытка загрузить данные �? �?ервера,
+	 * ра�?положенного за пределами изолированной �?реды.
 	 */
 	[Event(name="securityError", type="gd.eggs.assetsfactory.items.ItemEvent")]
 
@@ -88,23 +63,23 @@
 		/**
 		 * загружает переданный URLRequest в объект лоадера
 		 * @param    request
-		 * @param    context - переколбасить под что-то универсальное
+		 * @param    context - переколба�?ить под что-то универ�?альное
 		 */
 		function load(request:URLRequest, context:ItemLoaderContext = null):void;
 
 		/**
-		 * Загружает переданные байты, декодирует, помещает в свойство content объекта
+		 * Загружает переданные байты, декодирует, помещает в �?вой�?тво content объекта
 		 * @param    bytes
 		 */
 		function loadBytes(bytes:ByteArray):void;
 
 		/**
-		 * Удаляет загруженный ранее объект. Обнуляет параметры content, byteContent
+		 * Удал�?ет загруженный ранее объект. Обнул�?ет параметры content, byteContent
 		 */
 		function unload():void;
 
 		/**
-		 * Останавливает текущую активную загрузку.
+		 * О�?танавливает текущую активную загрузку.
 		 */
 		function close():void;
 
@@ -112,12 +87,12 @@
 		// Getters Setters
 		//=============================
 		/**
-		 * Возвращает ссылку на загруженные данные в удобоваримом формате
+		 * Возвращает �?�?ылку на загруженные данные в удобоваримом формате
 		 */
 		function get content():Object
 
 		/**
-		 * возвращает ссылку на контент в байтовых данных
+		 * возвращает �?�?ылку на контент в байтовых данных
 		 */
 		function get byteContent():ByteArray
 
@@ -127,16 +102,16 @@
 		function get dataFormat():String
 
 		/**
-		 * Объекты LoaderInfo совместно используются объектом Loader
-		 * и загруженным объектом содержимого.
-		 * Объект LoaderInfo предоставляет сведения о процессе загрузки
-		 * и статистику по загружаемому файлу.
+		 * Объекты LoaderInfo �?овме�?тно и�?пользуют�?�? объектом Loader
+		 * и загруженным объектом �?одержимого.
+		 * Объект LoaderInfo предо�?тавл�?ет �?ведени�? о проце�?�?е загрузки
+		 * и �?тати�?тику по загружаемому файлу.
 		 *
-		 * События, связанные с загрузкой, отправляются объектом LoaderInfo,
-		 * на который ссылается свойство contentLoaderInfo объекта Loader.
-		 * Свойство contentLoaderInfo задается для действительного объекта LoaderInfo,
-		 * даже если содержимое еще не загружено, чтобы можно было добавить
-		 * прослушивателей событий объекта перед загрузкой.
+		 * Событи�?, �?в�?занные �? загрузкой, отправл�?ют�?�? объектом LoaderInfo,
+		 * на который �?�?ылает�?�? �?вой�?тво contentLoaderInfo объекта Loader.
+		 * Свой�?тво contentLoaderInfo задает�?�? дл�? дей�?твительного объекта LoaderInfo,
+		 * даже е�?ли �?одержимое еще не загружено, чтобы можно было добавить
+		 * про�?лушивателей �?обытий объекта перед загрузкой.
 		 */
 		function get contentLoaderInfo():ItemLoaderInfo
 	}

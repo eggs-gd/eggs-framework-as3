@@ -1,60 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-﻿/** BulkLoader: manage multiple loadings in Actioncript 3.
- *
- *
- *   @author Arthur Debert
- */
-
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2006-2007 Arthur Debert
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of
- * this software and associated documentation files (the "Software"), to deal in
- * the Software without restriction, including without limitation the rights to
- * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- * the Software, and to permit persons to whom the Software is furnished to do so,
- * subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- * http://code.google.com/p/bulk-loader/
- * http://www.opensource.org/licenses/mit-license.php
- *
- */
 package gd.eggs.loading
 {
 	import flash.display.*;
@@ -301,7 +244,7 @@ package gd.eggs.loading
 		 */
 		public static const PAUSED_AT_START:String = "pausedAtStart";
 
-		/** An <code>Boolean</code> говорим грузиться в шаред обжект.
+		/** An <code>Boolean</code> говорим грузить�?�? в шаред обжект.
 		 * @see #add()
 		 * @default false
 		 */
@@ -558,14 +501,14 @@ package gd.eggs.loading
 		 */
 		public static function getLoader(name:String):BulkLoader
 		{
-			// пытаемся выковырять лоадер из списка
+			// пытаем�?�? выковыр�?ть лоадер из �?пи�?ка
 			if (BulkLoader._allLoaders.hasOwnProperty(name))
 			{
 				trace("trying to return loader from list");
 				return BulkLoader._allLoaders[name] as BulkLoader;
 			}
 
-			// если не проканало то создаем новый с дефолтными значениями.
+			// е�?ли не проканало то �?оздаем новый �? дефолтными значени�?ми.
 			trace("trying to return new loader");
 			return new BulkLoader(name);
 		}
@@ -776,7 +719,7 @@ package gd.eggs.loading
 		}
 
 		/**
-		 * Очистка шаредОбжекта
+		 * Очи�?тка шаредОбжекта
 		 */
 		public function clearSO():void
 		{
@@ -2043,7 +1986,7 @@ package gd.eggs.loading
 
 			if (item.shared)
 			{
-				// если нет списка контента то создаем
+				// е�?ли нет �?пи�?ка контента то �?оздаем
 				if (!sharedObject.data.hasOwnProperty("contents"))
 				{
 					sharedObject.data.contents = new Dictionary();

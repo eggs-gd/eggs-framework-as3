@@ -1,57 +1,32 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.mvc.model
 {
 
 
 	/**
-	 * Базовая модель данных. От этого класса наследуется главная модель
-	 * так же все ветки и параметры которые должны автообновляться от сервера
-	 * должны наследоваться от этого класса. Все данные которые автообновляются
-	 * можно будет достать из этой части модели геттером data.
-	 * так же рекомендуется добавить все необходимые геттеры в каждом потомке
+	 * Базова�? модель данных. От �?того кла�?�?а на�?ледует�?�? главна�? модель
+	 * так же в�?е ветки и параметры которые должны автообновл�?ть�?�? от �?ервера
+	 * должны на�?ледовать�?�? от �?того кла�?�?а. В�?е данные которые автообновл�?ют�?�?
+	 * можно будет до�?тать из �?той ча�?ти модели геттером data.
+	 * так же рекомендует�?�? добавить в�?е необходимые геттеры в каждом потомке
 	 * дабы избежать лишней точки в имени параметра.
 	 *
-	 * Все известные параметры в приходящих с сервера данных должны быть добавлены в _data в конструкторе:
+	 * В�?е изве�?тные параметры в приход�?щих �? �?ервера данных должны быть добавлены в _data в кон�?трукторе:
 	 *        _data.someParam = new SomeClass(); //SomeClass - Это либо что-то из базовых типов, либо очередной потомок BaseDataModel
 	 *
-	 * так же при необходимости следует оверрайдить метод: updateNoKey(key:Object, data:Object) - этот метод занимается заполнением данных
+	 * так же при необходимо�?ти �?ледует оверрайдить метод: updateNoKey(key:Object, data:Object) - �?тот метод занимает�?�? заполнением данных
 	 * имени которых не нашел в _data.
 	 *
 	 * @author Dukobpa3
 	 */
 	public class BaseDataModel extends BaseModel
 	{
-		/** Объект для данных сервера */
+		/** Объект дл�? данных �?ервера */
 		protected var _data:Object;
 
 		/**
-		 * Конструктор. Тут инициалируется композиция с объектов-контенйером для автообновляемых данных.
-		 * так же нужно в констркуторе указывать инициализацию всех нужных параметров нуждающихся в автообновляении и вставлять их в этот объект.
-		 * Имена параметров должны в точности совпадать с серверными.
+		 * Кон�?труктор. Тут инициалирует�?�? композици�? �? объектов-контенйером дл�? автообновл�?емых данных.
+		 * так же нужно в кон�?тркуторе указывать инициализацию в�?ех нужных параметров нуждающих�?�? в автообновл�?ении и в�?тавл�?ть их в �?тот объект.
+		 * Имена параметров должны в точно�?ти �?овпадать �? �?ерверными.
 		 */
 		public function BaseDataModel()
 		{
@@ -63,27 +38,27 @@
 		//	PRIVATE
 		//-----------------------------
 		/**
-		 * Пропихивает данные полученные с сервера по веткам моделей.
+		 * Пропихивает данные полученные �? �?ервера по веткам моделей.
 		 * @param    data
 		 */
 		protected function updateData(data:Object):void
 		{
 			for (var key:String in data) // проходим по каждому ключу данных
 			{
-				if (_data.hasOwnProperty(key)) // если в дате есть такой ключ
+				if (_data.hasOwnProperty(key)) // е�?ли в дате е�?ть такой ключ
 				{
-					if (_data[key] is BaseDataModel) // и если этот ключ является BaseDataModel
+					if (_data[key] is BaseDataModel) // и е�?ли �?тот ключ �?вл�?ет�?�? BaseDataModel
 					{
-						_data[key].updateData.call(this, data[key]) // значит в нем должен быть метод автоапдейта. Запускаем его
+						_data[key].updateData.call(this, data[key]) // значит в нем должен быть метод автоапдейта. Запу�?каем его
 					}
 					else
 					{
-						_data[key] = data[key]; // Иначе данные принимаем за базовый тип и просто приравниваем
+						_data[key] = data[key]; // Иначе данные принимаем за базовый тип и про�?то приравниваем
 					}
 				}
-				else // если же такого ключа нету
+				else // е�?ли же такого ключа нету
 				{
-					updateNoKey(key, data[key]); // то запускаем функцию занимающуюся обновлением без ключей.
+					updateNoKey(key, data[key]); // то запу�?каем функцию занимающую�?�? обновлением без ключей.
 				}
 
 				update(key); // Кричим во вьюху что изменили параметр.
@@ -106,7 +81,7 @@
 		//=============================
 
 		/**
-		 * Возвращает основной контейнер с автообновляемыми данными
+		 * Возвращает о�?новной контейнер �? автообновл�?емыми данными
 		 */
 		public function get data():Object
 		{ return _data; }

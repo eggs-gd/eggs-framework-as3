@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.hint
 {
 	import flash.display.DisplayObject;
@@ -39,11 +14,11 @@
 
 
 	/**
-	 * Статический класс хинта. Можно навесить на любой интеракив обжект, поддерживает скины.
-	 * Авторесайзится под контент.
-	 * Косяков нету:)
-	 * Не нравится что каждый раз пересоздается таймер, поидее можно просто стопать ресетать и стартовать заново. Потом перепишу.
-	 * пример использования:
+	 * Статиче�?кий кла�?�? хинта. Можно наве�?ить на любой интеракив обжект, поддерживает �?кины.
+	 * �?вторе�?айзит�?�? под контент.
+	 * Ко�?�?ков нету:)
+	 * �?е нравит�?�? что каждый раз пере�?оздает�?�? таймер, поидее можно про�?то �?топать ре�?етать и �?тартовать заново. Потом перепишу.
+	 * пример и�?пользовани�?:
 	 * Hint.init(_hintContainer, new hint_bg());
 	 * Hint.addItem(_client, '<font face="Myriad Pro" size="20"><p align="center"><b>Some text</b></p></font>');
 	 * Hint.addItem(_client2, new AnimationMcFromLibrary());
@@ -54,31 +29,31 @@
 		//=====================================================================
 		//	PARAMETERS
 		//=====================================================================
-		private static var _host:DisplayObjectContainer; // контейнер всей системы
+		private static var _host:DisplayObjectContainer; // контейнер в�?ей �?и�?темы
 
 		//-----------------------------
 		//	Graphics
 		//-----------------------------
-		private static var _hint:Sprite; // контейнер всего хинта
-		private static var _hintBgCont:Sprite; // Добавлялся для удобного управления балуном и стрелочкой, пока не буду выпиливать.
-		private static var _bg:DisplayObject; // Бек, любой дисплейобжект который умеет ресайзиться.
+		private static var _hint:Sprite; // контейнер в�?его хинта
+		private static var _hintBgCont:Sprite; // Добавл�?л�?�? дл�? удобного управлени�? балуном и �?трелочкой, пока не буду выпиливать.
+		private static var _bg:DisplayObject; // Бек, любой ди�?плейобжект который умеет ре�?айзить�?�?.
 		private static var _dataCont:Sprite; // контейнер контента
-		private static var _hintFld:TextField; // текстовое поле для текстовых хинтов
+		private static var _hintFld:TextField; // тек�?товое поле дл�? тек�?товых хинтов
 
 		//-----------------------------
 		//	System
 		//-----------------------------
-		private static var _items:Dictionary; // регистратор хинтов {item:hintData}
+		private static var _items:Dictionary; // реги�?тратор хинтов {item:hintData}
 		private static var _timer:Timer; // таймер задержки показа
-		private static var _currentItem:InteractiveObject; // Текущий отображаемый хинт, нужно фиксировать для адекватной работы с мышой
-		private static var _currentHint:Object; // текущий отображаемый хинт { delay:delay, data:data, move:move } - опять же для мыши
+		private static var _currentItem:InteractiveObject; // Текущий отображаемый хинт, нужно фик�?ировать дл�? адекватной работы �? мышой
+		private static var _currentHint:Object; // текущий отображаемый хинт { delay:delay, data:data, move:move } - оп�?ть же дл�? мыши
 
 		//=====================================================================
 		//	CONSTRUCTOR, INIT
 		//=====================================================================
 		/**
-		 * Статик класс, конструктора нима:)
-		 * До первого использования нужно юзать инит.
+		 * Статик кла�?�?, кон�?труктора нима:)
+		 * До первого и�?пользовани�? нужно юзать инит.
 		 */
 		public function Hint()
 		{
@@ -89,8 +64,8 @@
 		//	PUBLIC
 		//=====================================================================
 		/**
-		 * инициализация
-		 * @param    host слой хинта. Самый верхний в системе
+		 * инициализаци�?
+		 * @param    host �?лой хинта. Самый верхний в �?и�?теме
 		 * @param    bg бек
 		 */
 		public static function init(host:DisplayObjectContainer, bg:DisplayObject, embedFonts:Boolean = true):void
@@ -121,11 +96,11 @@
 		}
 
 		/**
-		 * Регистрируем хинт в системе.
-		 * @param    item объект на котором должен появляться хинт (после регистрации его можно двигать, хинт поймет и будет рисоваться правильно в новых координатах)
-		 * @param    data строка либо DisplayObject контента хинта.
-		 * @param    delay задержка в секундах до появления хинта после наведения мыши
-		 * @param    move двигать ли хинт при перемещении мышки над объектом. Если фолс то появится в точке наведения и пропадет когда убрал мышь.
+		 * Реги�?трируем хинт в �?и�?теме.
+		 * @param    item объект на котором должен по�?вл�?ть�?�? хинт (по�?ле реги�?трации его можно двигать, хинт поймет и будет ри�?овать�?�? правильно в новых координатах)
+		 * @param    data �?трока либо DisplayObject контента хинта.
+		 * @param    delay задержка в �?екундах до по�?влени�? хинта по�?ле наведени�? мыши
+		 * @param    move двигать ли хинт при перемещении мышки над объектом. Е�?ли фол�? то по�?вит�?�? в точке наведени�? и пропадет когда убрал мышь.
 		 */
 		public static function addItem(item:InteractiveObject, data:Object, delay:Number = 0.2, move:Boolean = true):void
 		{
@@ -136,7 +111,7 @@
 		}
 
 		/**
-		 * Удаляет хинт. Ваш КЭП.
+		 * Удал�?ет хинт. Ваш КЭП.
 		 * @param    item
 		 */
 		public static function removeItem(item:InteractiveObject):void
@@ -152,7 +127,7 @@
 		//	PRIVATE
 		//=====================================================================
 		/**
-		 * Обновляет содержимое хинта
+		 * Обновл�?ет �?одержимое хинта
 		 */
 		private static function updateHint():void
 		{
@@ -179,12 +154,12 @@
 			}
 			else
 			{
-				throw new Error("Не поддерживаемый тип данных, используйте String или DisplayObject");
+				throw new Error("�?е поддерживаемый тип данных, и�?пользуйте String или DisplayObject");
 			}
 		}
 
 		/**
-		 * Обновляет позицию хинта
+		 * Обновл�?ет позицию хинта
 		 */
 		private static function setPosition():void
 		{
@@ -194,16 +169,16 @@
 			var stage:Stage = _host.stage;
 			if (!stage) return;
 
-			if (stage.mouseX - _hint.width * 0.5 < 0) // если вылазит влево за екран
+			if (stage.mouseX - _hint.width * 0.5 < 0) // е�?ли вылазит влево за екран
 			{
 				_hint.x = 5;
 			}
-			else if (stage.mouseX + _hint.width * 0.5 > stage.stageWidth) // если вылазит вправо за екран
+			else if (stage.mouseX + _hint.width * 0.5 > stage.stageWidth) // е�?ли вылазит вправо за екран
 			{
 				_hint.x = int(stage.stageWidth - _hint.width - 5);
 			}
 
-			if (stage.mouseY - _hint.height < 0) // если вылазит наверх
+			if (stage.mouseY - _hint.height < 0) // е�?ли вылазит наверх
 			{
 				_hint.y = 5;
 			}
@@ -213,7 +188,7 @@
 		//	HANDLERS
 		//=====================================================================
 		/**
-		 * При клике на итем - прячем хинт
+		 * При клике на итем - пр�?чем хинт
 		 * @param    e
 		 */
 		private static function onItemClick(e:MouseEvent):void
@@ -244,7 +219,7 @@
 		}
 
 		/**
-		 * Убираем хинт когда мышка ушла с итема.
+		 * Убираем хинт когда мышка ушла �? итема.
 		 * @param    e
 		 */
 		private static function onItemOut(e:MouseEvent):void
@@ -268,7 +243,7 @@
 		}
 
 		/**
-		 * Запускаем тамйер когда мышка навелась на итем.
+		 * Запу�?каем тамйер когда мышка навела�?ь на итем.
 		 * @param    e
 		 */
 		private static function onItemOver(e:MouseEvent):void
@@ -282,7 +257,7 @@
 		}
 
 		/**
-		 * Рисуем хинт по истечении таймера.
+		 * Ри�?уем хинт по и�?течении таймера.
 		 * @param    e
 		 */
 		private static function onTimerOver(e:TimerEvent):void

@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.mvc.model
 {
 
@@ -33,11 +8,11 @@
 
 
 	/**
-	 * Базовый класс модели.
-	 * Умеет рассылать событие о изменениях update(type:String = "default").
-	 * метод принимает строковый параметр подтипа события изменения.
-	 * по этому параметру можно во вью ориентироваться и дифференциировать куски рендера,
-	 * чтобы не производить весь рендер каждый апдейт.
+	 * Базовый кла�?�? модели.
+	 * Умеет ра�?�?ылать �?обытие о изменени�?х update(type:String = "default").
+	 * метод принимает �?троковый параметр подтипа �?обыти�? изменени�?.
+	 * по �?тому параметру можно во вью ориентировать�?�? и дифференциировать ку�?ки рендера,
+	 * чтобы не производить ве�?ь рендер каждый апдейт.
 	 * @author Dukobpa3
 	 */
 	public class BaseModel
@@ -52,10 +27,10 @@
 		}
 
 		/**
-		 * Добавляем коллбек на изменения в модели.
-		 * Есть зарезервированное имя события, которое дернет дефолтный рендер вьюхи.
-		 * Так же можно подписаться вьюхой несколькими коллбеками на разные события,
-		 * чтобы не перерисовывать всю вью если изменилось одно значение.
+		 * Добавл�?ем коллбек на изменени�? в модели.
+		 * Е�?ть зарезервированное им�? �?обыти�?, которое дернет дефолтный рендер вьюхи.
+		 * Так же можно подпи�?ать�?�? вьюхой не�?колькими коллбеками на разные �?обыти�?,
+		 * чтобы не перери�?овывать в�?ю вью е�?ли изменило�?ь одно значение.
 		 * @param type
 		 * @param callback
 		 */
@@ -68,7 +43,7 @@
 		}
 
 		/**
-		 * Удаляет ранее добавленный коллбек.
+		 * Удал�?ет ранее добавленный коллбек.
 		 * @param type
 		 * @param callback
 		 */
@@ -99,7 +74,7 @@
 		}
 
 		/**
-		 * Модель рассылает событие, об обновлении
+		 * Модель ра�?�?ылает �?обытие, об обновлении
 		 */
 		public function refresh():void
 		{
@@ -107,9 +82,9 @@
 		}
 
 		/**
-		 * При каждом изменении св-ва, необходимого для перерисовки в представлении, необходимо вызывать метод
-		 * @param    type строковый параметр обозначающий участок в котором произошли изменения.
-		 *          Если BaseModel.DEFAULT_CHANGE("default") - то рендериться будет вся вью.
+		 * При каждом изменении �?в-ва, необходимого дл�? перери�?овки в пред�?тавлении, необходимо вызывать метод
+		 * @param    type �?троковый параметр обозначающий уча�?ток в котором произошли изменени�?.
+		 *          Е�?ли BaseModel.DEFAULT_CHANGE("default") - то рендерить�?�? будет в�?�? вью.
 		 */
 		protected function update(type:String = "default"):void
 		{

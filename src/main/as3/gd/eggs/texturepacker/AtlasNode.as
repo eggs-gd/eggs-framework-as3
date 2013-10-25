@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.texturepacker
 {
 
@@ -30,7 +5,7 @@
 
 
 	/**
-	 * Класс кучкует тайлы на один лист, размещая их компактно.
+	 * Кла�?�? кучкует тайлы на один ли�?т, размеща�? их компактно.
 	 * @author Dukobpa3
 	 */
 	public class AtlasNode
@@ -38,20 +13,20 @@
 		//=============================
 		//	PARAMETERS
 		//=============================
-		/** Чилды ноды - две дочерних ноды, впринципе можно сделать и не массивом а просто нода1 и нода2 */
+		/** Чилды ноды - две дочерних ноды, впринципе можно �?делать и не ма�?�?ивом а про�?то нода1 и нода2 */
 		private var _childs:Vector.<AtlasNode>;
 		/** Картинка ноды */
 		private var _data:Object;
 
-		/** Прямоугольник ноды */
+		/** Пр�?моугольник ноды */
 		private var _rect:Rectangle;
 
 		//=============================
 		//	CONSTRUCTOR, INIT
 		//=============================
 		/**
-		 * Конструктор ноды, принимает параметры прямоугольника в который надо впихуевать картинку
-		 * Дефолтные значения нужны для корневых нод. Создаем лист максимального размера и начинаем его заполнять.
+		 * Кон�?труктор ноды, принимает параметры пр�?моугольника в который надо впихуевать картинку
+		 * Дефолтные значени�? нужны дл�? корневых нод. Создаем ли�?т мак�?имального размера и начинаем его заполн�?ть.
 		 * @param    x
 		 * @param    y
 		 * @param    width
@@ -68,10 +43,10 @@
 		//	PUBLIC
 		//=============================
 		/**
-		 * Вставляет в атлас "нечто" которое должно иметь width и height
-		 * Вполне себе может обойтись даже Rectangle'ом или каким-то {width:xxx, height:xxx}
-		 * Интерфейс запилить не выйдет, так что сорри
-		 * Подошел бы IBitmapDrawable, но в нем нету ширины и высоты
+		 * В�?тавл�?ет в атла�? "нечто" которое должно иметь width и height
+		 * Вполне �?ебе может обойти�?ь даже Rectangle'ом или каким-то {width:xxx, height:xxx}
+		 * Интерфей�? запилить не выйдет, так что �?орри
+		 * Подошел бы IBitmapDrawable, но в нем нету ширины и вы�?оты
 		 * @param    data
 		 * @return
 		 */
@@ -89,25 +64,25 @@
 			}
 			else
 			{
-				//TODO сделать адекватные ерроры
-				if (this._data) return null; // если тут уже есть картинка - нафиг
+				//TODO �?делать адекватные ерроры
+				if (this._data) return null; // е�?ли тут уже е�?ть картинка - нафиг
 
-				if (width > _rect.width || height > _rect.height) return null; // если картинка не влазит в доступные размеры - нафиг
+				if (width > _rect.width || height > _rect.height) return null; // е�?ли картинка не влазит в до�?тупные размеры - нафиг
 
-				if (width == _rect.width && height == _rect.height) // Если картинка впихивается в упор в оставшееся место впихиваем ее
+				if (width == _rect.width && height == _rect.height) // Е�?ли картинка впихивает�?�? в упор в о�?тавшее�?�? ме�?то впихиваем ее
 				{
 					this._data = data;
 					return this;
-					//TODO запилить "закрытие" листа
-					// но маловероятно что картинка прям так красиво впишется
+					//TODO запилить "закрытие" ли�?та
+					// но маловеро�?тно что картинка пр�?м так кра�?иво впишет�?�?
 					// потому надо придумать какие-то зазоры минимальные которые можно проигнорить
 				}
 
 				var dw:Number = _rect.width - width;
 				var dh:Number = _rect.height - height;
 
-				// обрабатываем оба варианта слита (высокий узкий прямоуголник/широкий низкий)
-				// и пушатся две ноды с соответствующими настройками
+				// обрабатываем оба варианта �?лита (вы�?окий узкий пр�?моуголник/широкий низкий)
+				// и пушат�?�? две ноды �? �?оответ�?твующими на�?тройками
 				if (dw > dh)
 				{
 					_childs.push(new AtlasNode(_rect.left, _rect.top, width, _rect.height));
@@ -119,7 +94,7 @@
 					_childs.push(new AtlasNode(_rect.left, _rect.top + height, _rect.width, _rect.height - height));
 				}
 
-				// всовываем в нулевую ноду
+				// в�?овываем в нулевую ноду
 				return _childs[0].insert(data);
 			}
 
@@ -128,16 +103,16 @@
 		//=============================
 		//	ACCESSORS
 		//=============================
-		/** Прямоугольник тайла */
+		/** Пр�?моугольник тайла */
 		public function get rect():Rectangle
 		{ return _rect; }
 
-		/** "Картинка" тайла, которая может быть нихера не картинкой,
-		 * если вдруг захотим просто расположить прямоугольники к примеру */
+		/** "Картинка" тайла, котора�? может быть нихера не картинкой,
+		 * е�?ли вдруг захотим про�?то ра�?положить пр�?моугольники к примеру */
 		public function get data():Object
 		{ return _data; }
 
-		/** Ширина/высота для окончательной упаковки листа */
+		/** Ширина/вы�?ота дл�? окончательной упаковки ли�?та */
 		public function get width():Number
 		{ return _rect.width; }
 

@@ -1,28 +1,3 @@
-/**
- * Licensed under the MIT License
- *
- * Copyright (c) 2013 earwiGGames team
- * http://eggs.gd/
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 ﻿package gd.eggs.net.connect
 {
 	import flash.events.Event;
@@ -61,10 +36,10 @@
 		/** текущий коннект */
 		private var _config:ServerConnectConfig;
 
-		/** данные готовые для использования */
+		/** данные готовые дл�? и�?пользовани�? */
 		private var _data:Object;
 
-		/** Таймер попыток соединения */
+		/** Таймер попыток �?оединени�? */
 		private var _attemptsTimeout:Timer;
 
 		/** Еще один таймер */
@@ -95,7 +70,7 @@
 		}
 
 		/**
-		 * Отправляет данные на сервер
+		 * Отправл�?ет данные на �?ервер
 		 * @param    data данные
 		 */
 		public function send(data:Object):void
@@ -130,7 +105,7 @@
 		//		PRIVATE
 		//=====================================================================
 		/**
-		 * Создание подключения по socket
+		 * Создание подключени�? по socket
 		 */
 		private function connectSocket():void
 		{
@@ -145,12 +120,12 @@
 			_socket.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onSocketSecurityError);
 
 			/*
-			 close - Отправляется, когда сервер закрывает подключение к сокету.	Socket
-			 connect - Отправляется после установления сетевого подключения.	Socket
-			 ioError - Отправляется, когда происходит ошибка ввода-вывода, приводящая к сбою операции отправки или загрузки.	Socket
-			 outputProgress - Передается при перемещении данных сокетом из буфера записи на уровень сетевого транспорта	Socket
-			 securityError - Отправляется, если метод Socket.connect() предпринимает попытку подключиться к серверу, который запрещен изолированной средой безопасности вызывающего приложения, или к порту с номером меньше 1024, когда нет файла политики сокетов, разрешающего такое подключение.	Socket
-			 socketData - Отправляется, когда сокет получает данные.
+			 close - Отправл�?ет�?�?, когда �?ервер закрывает подключение к �?окету.	Socket
+			 connect - Отправл�?ет�?�? по�?ле у�?тановлени�? �?етевого подключени�?.	Socket
+			 ioError - Отправл�?ет�?�?, когда прои�?ходит ошибка ввода-вывода, привод�?ща�? к �?бою операции отправки или загрузки.	Socket
+			 outputProgress - Передает�?�? при перемещении данных �?окетом из буфера запи�?и на уровень �?етевого тран�?порта	Socket
+			 securityError - Отправл�?ет�?�?, е�?ли метод Socket.connect() предпринимает попытку подключить�?�? к �?ерверу, который запрещен изолированной �?редой безопа�?но�?ти вызывающего приложени�?, или к порту �? номером меньше 1024, когда нет файла политики �?окетов, разрешающего такое подключение.	Socket
+			 socketData - Отправл�?ет�?�?, когда �?окет получает данные.
 			 */
 
 			_socket.connect(_config.host, _config.port);
@@ -161,7 +136,7 @@
 		}
 
 		/**
-		 * Перезапуск таймера подключения
+		 * Перезапу�?к таймера подключени�?
 		 */
 		private function resetConnectionTimer():void
 		{
