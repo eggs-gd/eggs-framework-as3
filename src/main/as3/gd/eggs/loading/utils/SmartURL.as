@@ -1,4 +1,4 @@
-﻿﻿package gd.eggs.loading.utils
+﻿package gd.eggs.loading.utils
 {
 
 
