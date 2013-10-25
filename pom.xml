@@ -9,8 +9,8 @@
     <packaging>swc</packaging>
 
     <parent>
-        <groupId>gd.eggs.as3.framework</groupId>
-        <artifactId>eggs-framework-as3-samples</artifactId>
+        <groupId>gd.eggs.as3</groupId>
+        <artifactId>base</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
