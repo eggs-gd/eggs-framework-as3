@@ -4,27 +4,41 @@
 
 	import flash.utils.Dictionary;
 
-	import gd.eggs.util.Validate;
+import gd.eggs.util.IInitialize;
+
+import gd.eggs.util.Validate;
 
 
 	/**
-	 * Базовый кла�?�? модели.
-	 * Умеет ра�?�?ылать �?обытие о изменени�?х update(type:String = "default").
-	 * метод принимает �?троковый параметр подтипа �?обыти�? изменени�?.
-	 * по �?тому параметру можно во вью ориентировать�?�? и дифференциировать ку�?ки рендера,
-	 * чтобы не производить ве�?ь рендер каждый апдейт.
+	 * Базовый класс модели.
+	 * Умеет рассылать событие о изменениях update(type:String = "default").
+	 * метод принимает строковый параметр подтипа событий изменений.
+	 * по этому параметру можно во вью ориентироваться и дифференциировать куски рендера,
+	 * чтобы не производить весь рендер каждый апдейт.
 	 * @author Dukobpa3
 	 */
-	public class BaseModel
+	public class BaseModel implements IInitialize
 	{
 		public static const DEFAULT_CHANGE:String = "default";
 
 		private var _callbacks:Dictionary; // {object:{type:[callback]}}
 
-		public function BaseModel()
+        private var _inited:Boolean;
+
+        public function BaseModel()
 		{
 			_callbacks = new Dictionary();
 		}
+
+        public function init():void
+        {
+            _inited = true;
+        }
+
+        public function destroy():void
+        {
+            _inited = false;
+        }
 
 		/**
 		 * Добавл�?ем коллбек на изменени�? в модели.
@@ -119,6 +133,8 @@
 
 		}
 
-	}
+        public function get isInited():Boolean { return _inited; }
+
+    }
 
 }

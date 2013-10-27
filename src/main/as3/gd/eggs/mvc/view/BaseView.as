@@ -4,19 +4,22 @@
 	import flash.events.Event;
 
 	import gd.eggs.mvc.model.BaseModel;
+import gd.eggs.util.IInitialize;
 
 
-	[Event(name="viewChange", type="gd.eggs.mvc.view.ViewEvent")]
+[Event(name="viewChange", type="gd.eggs.mvc.view.ViewEvent")]
 
 	/**
 	 * Базовый кла�?�?-пред�?тавление
 	 * При �?оздании или у�?тановке модели добавл�?ет коллбек по-умолчанию
 	 * При удалении модели или де�?трое - удал�?ет его.
 	 * @author Dukobpa3
-	 */ public class BaseView extends Sprite
+	 */ public class BaseView extends Sprite implements IInitialize
 	{
 		/** Данные дл�? отображени�? */
 		protected var _model:BaseModel;
+
+        private var _inited:Boolean;
 
 		/**
 		 * Кон�?труктор
@@ -61,6 +64,11 @@
 			if (update) _model.refresh();
 		}
 
+        public function init():void
+        {
+            _inited = true;
+        }
+
 		/**
 		 * Отпи�?ывает�?�? от модели и обнул�?ет �?�?ылку
 		 */
@@ -72,6 +80,8 @@
 				_model.removeCallback(this);
 				_model = null;
 			}
+
+            _inited = false;
 		}
 
 		/**
@@ -128,6 +138,11 @@
 
 		}
 
-	}
+        public function get isInited():Boolean {
+            return _inited;
+        }
+
+
+    }
 
 }

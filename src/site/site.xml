@@ -8,9 +8,9 @@
 
 	<body>
 		<menu name="Documentation">
-			<item name="AsDocs" href="asdoc/index.html"/>
-			<item name="PMD Report" href="pmd/flexpmd.html"/>
-			<item name="Coverage Report" href="coverage/index.html"/>
+            <item name="AsDocs" href="asdoc/index.html" target="_blank"/>
+            <item name="PMD Report" href="pmd/flexpmd.html" target="_blank"/>
+            <item name="Coverage Report" href="coverage/index.html" target="_blank"/>
 		</menu>
 
 		<menu ref="reports"/>
