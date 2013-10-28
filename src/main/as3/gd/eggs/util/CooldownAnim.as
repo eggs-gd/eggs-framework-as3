@@ -64,7 +64,7 @@
 			_shape.graphics.moveTo(0, 0);
 			_shape.graphics.lineTo(_start.x, _start.y);
 			eaze(_point).to(time, { x: [ _radius, _radius, -_radius, -_radius, 0],
-				y                    : [ -_radius, _radius, _radius, -_radius, -_radius] }).onUpdate(animUpdate).onComplete(animComplete);
+				y: [ -_radius, _radius, _radius, -_radius, -_radius] }).onUpdate(animUpdate).onComplete(animComplete);
 
 			timer = time;
 			eaze(this).to(time, { timer: 0 });

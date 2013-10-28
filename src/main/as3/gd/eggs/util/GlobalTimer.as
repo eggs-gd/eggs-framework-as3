@@ -6,6 +6,7 @@ package gd.eggs.util
 	import flash.utils.Timer;
 	import flash.utils.getTimer;
 
+
 	/**
 	 * ...
 	 * @author Dukobpa3
@@ -154,10 +155,10 @@ package gd.eggs.util
 		//=====================================================================
 		private function onTimer(event:TimerEvent):void
 		{
-			if(!_currentDate)return;
-			_currentDate.seconds ++;
+			if (!_currentDate)return;
+			_currentDate.seconds++;
 
-			for (var i:int = 0 ; i < _timerCallBacks.length ; i ++)
+			for (var i:int = 0; i < _timerCallBacks.length; i++)
 			{
 				_timerCallBacks[i](_currentDate);
 			}
@@ -165,11 +166,12 @@ package gd.eggs.util
 
 		private function onEnterFrame(event:Event):void
 		{
-			for (var i:int = 0 ; i < _frameCallBacks.length ; i ++)
+			for (var i:int = 0; i < _frameCallBacks.length; i++)
 			{
 				_frameCallBacks[i](getTimer());
 			}
 		}
+
 		//=====================================================================
 		//      ACCESSORS
 		//=====================================================================

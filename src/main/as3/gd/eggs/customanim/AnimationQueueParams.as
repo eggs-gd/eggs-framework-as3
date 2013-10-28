@@ -46,7 +46,7 @@ package gd.eggs.customanim
 				_animations[_currAnim].reset();
 				_animations[_currAnim].mc.visible = false;
 
-				_currAnim ++;
+				_currAnim++;
 				if (_currAnim >= _animations.length - 1) _currAnim = 0;
 
 				_animations[_currAnim].mc.visible = true;
@@ -63,6 +63,7 @@ package gd.eggs.customanim
 			//}
 			return false;
 		}
+
 		//=====================================================================
 		//      PRIVATE
 		//=====================================================================

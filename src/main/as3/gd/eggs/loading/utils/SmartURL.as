@@ -2,7 +2,7 @@
 {
 
 
-    /**
+	/**
 	 * A simple data holder to normalize an URI components.
 	 **/
 	public class SmartURL
@@ -61,11 +61,11 @@
 			if (rest.length > 0 && rest[0] == true)
 			{
 				return "[URL] rawString :" + rawString
-                        + ", protocol: " + protocol
-                        + ", port: " + port
-                        + ", host: " + host
-                        + ", path: " + path
-                        + ". queryLength: " + queryLength;
+						+ ", protocol: " + protocol
+						+ ", port: " + port
+						+ ", host: " + host
+						+ ", path: " + path
+						+ ". queryLength: " + queryLength;
 			}
 			return rawString;
 		}

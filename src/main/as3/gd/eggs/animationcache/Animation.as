@@ -1,4 +1,7 @@
-﻿package gd.eggs.animationcache
+﻿/**
+ * Пакет для растрирования анимаций
+ */
+package gd.eggs.animationcache
 {
 
 

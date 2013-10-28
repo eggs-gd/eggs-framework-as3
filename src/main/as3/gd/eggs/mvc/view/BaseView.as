@@ -4,10 +4,10 @@
 	import flash.events.Event;
 
 	import gd.eggs.mvc.model.BaseModel;
-import gd.eggs.util.IInitialize;
+	import gd.eggs.util.IInitialize;
 
 
-[Event(name="viewChange", type="gd.eggs.mvc.view.ViewEvent")]
+	[Event(name="viewChange", type="gd.eggs.mvc.view.ViewEvent")]
 
 	/**
 	 * Базовый кла�?�?-пред�?тавление
@@ -19,7 +19,7 @@ import gd.eggs.util.IInitialize;
 		/** Данные дл�? отображени�? */
 		protected var _model:BaseModel;
 
-        private var _inited:Boolean;
+		private var _inited:Boolean;
 
 		/**
 		 * Кон�?труктор
@@ -64,10 +64,10 @@ import gd.eggs.util.IInitialize;
 			if (update) _model.refresh();
 		}
 
-        public function init():void
-        {
-            _inited = true;
-        }
+		public function init():void
+		{
+			_inited = true;
+		}
 
 		/**
 		 * Отпи�?ывает�?�? от модели и обнул�?ет �?�?ылку
@@ -81,7 +81,7 @@ import gd.eggs.util.IInitialize;
 				_model = null;
 			}
 
-            _inited = false;
+			_inited = false;
 		}
 
 		/**
@@ -138,11 +138,12 @@ import gd.eggs.util.IInitialize;
 
 		}
 
-        public function get isInited():Boolean {
-            return _inited;
-        }
+		public function get isInited():Boolean
+		{
+			return _inited;
+		}
 
 
-    }
+	}
 
 }

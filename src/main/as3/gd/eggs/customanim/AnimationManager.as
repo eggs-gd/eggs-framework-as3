@@ -1,6 +1,9 @@
+/**
+ * Пакет для управления анимациями. Умеет проигрывать анимацию с заданной скоростью.
+ * Заданным кол-вом повторений и прочими плюшками.
+ */
 package gd.eggs.customanim
 {
-	import flash.display.MovieClip;
 	import flash.events.EventDispatcher;
 	import flash.utils.Dictionary;
 
@@ -69,7 +72,7 @@ package gd.eggs.customanim
 			_activeItems.splice(_activeItems.indexOf(params), 1);
 			delete _itemsById[id];
 
-			if(!_activeItems.length && _activeQueues.length) _globalTimer.removeFrameCallback(frameUpdate);
+			if (!_activeItems.length && _activeQueues.length) _globalTimer.removeFrameCallback(frameUpdate);
 		}
 
 		//-----------------------------
@@ -95,7 +98,7 @@ package gd.eggs.customanim
 			_activeQueues.splice(_activeQueues.indexOf(params), 1);
 			delete _itemsById[id];
 
-			if(!_activeItems.length && !_activeQueues.length) _globalTimer.removeFrameCallback(frameUpdate);
+			if (!_activeItems.length && !_activeQueues.length) _globalTimer.removeFrameCallback(frameUpdate);
 		}
 
 		//-----------------------------
@@ -116,6 +119,7 @@ package gd.eggs.customanim
 			_globalTimer.addFrameCallback(frameUpdate);
 			_pause = false;
 		}
+
 		//=====================================================================
 		//      PRIVATE
 		//=====================================================================
@@ -136,6 +140,7 @@ package gd.eggs.customanim
 				queue.play(date);
 			}
 		}
+
 		//=====================================================================
 		//      HANDLERS
 		//=====================================================================

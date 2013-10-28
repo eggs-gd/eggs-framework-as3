@@ -4,9 +4,8 @@
 
 	import flash.utils.Dictionary;
 
-import gd.eggs.util.IInitialize;
-
-import gd.eggs.util.Validate;
+	import gd.eggs.util.IInitialize;
+	import gd.eggs.util.Validate;
 
 
 	/**
@@ -23,22 +22,22 @@ import gd.eggs.util.Validate;
 
 		private var _callbacks:Dictionary; // {object:{type:[callback]}}
 
-        private var _inited:Boolean;
+		private var _inited:Boolean;
 
-        public function BaseModel()
+		public function BaseModel()
 		{
 			_callbacks = new Dictionary();
 		}
 
-        public function init():void
-        {
-            _inited = true;
-        }
+		public function init():void
+		{
+			_inited = true;
+		}
 
-        public function destroy():void
-        {
-            _inited = false;
-        }
+		public function destroy():void
+		{
+			_inited = false;
+		}
 
 		/**
 		 * Добавл�?ем коллбек на изменени�? в модели.
@@ -133,8 +132,8 @@ import gd.eggs.util.Validate;
 
 		}
 
-        public function get isInited():Boolean { return _inited; }
+		public function get isInited():Boolean { return _inited; }
 
-    }
+	}
 
 }

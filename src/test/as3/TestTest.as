@@ -1,5 +1,4 @@
-﻿
-package
+﻿package
 {
 
 	import org.hamcrest.assertThat;

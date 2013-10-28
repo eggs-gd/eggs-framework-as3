@@ -3,6 +3,7 @@ package gd.eggs.customanim
 	import flash.display.MovieClip;
 	import flash.utils.setTimeout;
 
+
 	/**
 	 * ...
 	 * @author Dukobpa3
@@ -56,6 +57,7 @@ package gd.eggs.customanim
 
 			reset();
 		}
+
 		//=====================================================================
 		//      PUBLIC
 		//=====================================================================
@@ -76,7 +78,7 @@ package gd.eggs.customanim
 				if (mc.currentFrame == mc.totalFrames)
 				{
 					mc.gotoAndStop(1);
-					_currentLoop ++;
+					_currentLoop++;
 				}
 				mc.nextFrame();
 				_delta -= _frameTime;
@@ -112,6 +114,7 @@ package gd.eggs.customanim
 							);
 			return result;
 		}
+
 		//=====================================================================
 		//      PRIVATE
 		//=====================================================================
@@ -119,6 +122,7 @@ package gd.eggs.customanim
 		{
 			pause = false;
 		}
+
 		//=====================================================================
 		//      HANDLERS
 		//=====================================================================
@@ -129,6 +133,7 @@ package gd.eggs.customanim
 		public function get mc():MovieClip { return _mc; }
 
 		public function get pause():Boolean { return _pause; }
+
 		public function set pause(value:Boolean):void
 		{
 			_justReseted = (_pause == true && value == false);
