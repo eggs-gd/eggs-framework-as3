@@ -77,8 +77,7 @@ package gd.eggs.util
 
 		/**
 		 * Добавить коллбек ентерфрейма
-		 * @param       func function onTimer(date:Date):void {} // коллбек принимает текущую дату юникстайм.
-		 *              // текущую, которая установлена в таймере, а не в системеДля синхронизации с сервером.
+		 * @param       func function onTimer(date:Date):void {} // коллбек принимает текущую дату getTimer().
 		 */
 		public function addFrameCallback(func:Function):void
 		{
@@ -112,7 +111,7 @@ package gd.eggs.util
 
 		/**
 		 * Добавить коллбек таймера
-		 * @param       func function onTimer(unixtime:int):void {} // коллбек принимает текущую дату юникстайм.
+		 * @param       func function onTimer(unixtime:int):void {} // коллбек принимает текущую дату сервера.
 		 *              // текущую, которая установлена в таймере, а не в системеДля синхронизации с сервером.
 		 */
 		public function addTimerCallback(func:Function):void
