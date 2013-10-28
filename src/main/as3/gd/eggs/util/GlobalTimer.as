@@ -87,7 +87,7 @@ package gd.eggs.util
 				_frameCallBacks.push(func);
 			}
 
-			if (!_visualBus.hasEventListener(TimerEvent.TIMER))
+			if (!_visualBus.hasEventListener(Event.ENTER_FRAME))
 			{
 				// если не подписаны - подписаться на ентерфейм
 				_visualBus.addEventListener(Event.ENTER_FRAME, onEnterFrame);
