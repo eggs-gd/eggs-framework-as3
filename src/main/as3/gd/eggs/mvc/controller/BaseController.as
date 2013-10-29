@@ -1,8 +1,6 @@
 ﻿package gd.eggs.mvc.controller
 {
 
-	import flash.events.EventDispatcher;
-
 	import gd.eggs.observer.IObservable;
 	import gd.eggs.observer.IObserver;
 	import gd.eggs.observer.Notification;
@@ -11,16 +9,16 @@
 
 
 	/**
-	 * Базовый кла�?�? контроллера
+	 * Базовый класс контроллера. Умеет слушать и слать нотификации в обсервер.
 	 * @author Dukobpa3
 	 */
-	public class BaseController extends EventDispatcher implements IObserver, IObservable, IInitialize
+	public class BaseController implements IObserver, IObservable, IInitialize
 	{
 
 		private var _isInited:Boolean;
 
 		/**
-		 * Синглтон об�?ервера
+		 * Синглтон обсервера
 		 */
 		private var obs:Observer;
 
@@ -31,8 +29,7 @@
 		}
 
 		/**
-		 * Подпи�?ка на нужные оповещени�?
-		 * @return
+		 * @inheritDoc
 		 */
 		public function listNotifications():Array
 		{
@@ -40,8 +37,7 @@
 		}
 
 		/**
-		 * Обработка оповещени�? note
-		 * @param    note
+		 * @inheritDoc
 		 */
 		public function update(note:Notification):void
 		{
@@ -49,8 +45,7 @@
 		}
 
 		/**
-		 * Отправка оповещени�? note
-		 * @param    note
+		 * @inheritDoc
 		 */
 		public function sendNotification(note:Notification):void
 		{
@@ -58,17 +53,25 @@
 			obs.notifyObservers(note);
 		}
 
-
+		/**
+		 * @inheritDoc
+		 */
 		public function init():void
 		{
 			_isInited = true;
 		}
 
+		/**
+		 * @inheritDoc
+		 */
 		public function destroy():void
 		{
 			_isInited = false;
 		}
 
+		/**
+		 * @inheritDoc
+		 */
 		public function get isInited():Boolean
 		{
 			return _isInited;

@@ -134,23 +134,13 @@ package gd.eggs.customanim
 
 		public function get pause():Boolean { return _pause; }
 
-		public function set pause(value:Boolean):void
-		{
+		public function set pause(value:Boolean):void {
 			_justReseted = (_pause == true && value == false);
 
 			if (_justReseted) reset();
 
 			_pause = value;
 		}
-
-		/*public function get loop():Boolean { return _loop; }
-
-		 public function get loopCount():int { return _loopCount; }
-
-		 public function get loopDelay():int { return _loopDelay; }
-
-
-		 */
 
 		public function get ended():Boolean { return _ended; }
 	}

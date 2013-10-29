@@ -10,21 +10,22 @@
 	[Event(name="viewChange", type="gd.eggs.mvc.view.ViewEvent")]
 
 	/**
-	 * Базовый кла�?�?-пред�?тавление
-	 * При �?оздании или у�?тановке модели добавл�?ет коллбек по-умолчанию
-	 * При удалении модели или де�?трое - удал�?ет его.
+	 * Базовый класс-представление
+	 * При создании или установке модели добавляет коллбек по-умолчанию
+	 * При удалении модели или дестрое - удаляет его.
 	 * @author Dukobpa3
-	 */ public class BaseView extends Sprite implements IInitialize
+	 */
+	public class BaseView extends Sprite implements IInitialize
 	{
-		/** Данные дл�? отображени�? */
+		/** Данные для отображения */
 		protected var _model:BaseModel;
 
 		private var _inited:Boolean;
 
 		/**
-		 * Кон�?труктор
+		 * Конструктор
 		 * @param    model модель (можно не указывать)
-		 * @param    update отри�?овывать ли �?разу при �?оздании
+		 * @param    update отрисовывать ли сразу при создании
 		 */
 		public function BaseView(model:BaseModel = null, update:Boolean = true)
 		{
@@ -36,20 +37,30 @@
 			}
 		}
 
+		/**
+		 * Отображает вью.
+		 * Реализация по-умолчанию просто visible = true;
+		 * Для более эффектного появления на екране слудет переопредлить.
+		 */
 		public function show():void
 		{
 			this.visible = true;
 		}
 
+		/**
+		 * Скрывает вью.
+		 * Реализация по-умолчанию просто visible = false;
+		 * Для более эффектного появления на екране слудет переопредлить.
+		 */
 		public function hide():void
 		{
 			this.visible = false;
 		}
 
 		/**
-		 * У�?танавливает модель
+		 * Устанавливает модель
 		 * @param    model модель
-		 * @param    update нужно ли рендерить �?разу по�?ле у�?тановки
+		 * @param    update нужно ли рендерить сразу после установки
 		 */
 		public function setModel(model:BaseModel, update:Boolean = true):void
 		{
@@ -64,13 +75,17 @@
 			if (update) _model.refresh();
 		}
 
+		/**
+		 * @inheritDoc
+		 */
 		public function init():void
 		{
 			_inited = true;
 		}
 
 		/**
-		 * Отпи�?ывает�?�? от модели и обнул�?ет �?�?ылку
+		 * @inheritDoc
+		 * Отписывается от модели и обнуляет ссылку
 		 */
 		public function destroy():void
 		{
@@ -85,7 +100,7 @@
 		}
 
 		/**
-		 * Вызывает перери�?овку вьюхи в �?ледующем кадре
+		 * Вызывает перерисовку вьюхи в следующем кадре
 		 */
 		public function invalidate():void
 		{
@@ -96,7 +111,7 @@
 		}
 
 		/**
-		 * Вызывает перери�?овку вьюхи немедленно
+		 * Вызывает перерисовку вьюхи немедленно
 		 */
 		public function invalidateNow():void
 		{
@@ -108,8 +123,8 @@
 		//=====================================================================
 
 		/**
-		 * Обработка �?обыти�? изменени�? модели
-		 * Вызов отложенной перери�?овки
+		 * Обработка события изменения модели
+		 * Вызов отложенной перерисовки
 		 */
 		private function onModelChange():void
 		{
@@ -120,8 +135,8 @@
 		}
 
 		/**
-		 * обрабатываем �?обытие модели о изменении оной.
-		 * Так же очищаем ма�?�?ив изменений модели по�?ле рендера.
+		 * обрабатываем событие модели о изменении оной.
+		 * Так же очищаем массив изменений модели после рендера.
 		 * @param    e
 		 */
 		private function onNextFrame(e:Event):void
@@ -131,13 +146,16 @@
 		}
 
 		/**
-		 * �?а�?ледуемый метод обработки данных модели (перери�?овка компонента)
+		 * Наследуемый метод обработки данных модели (перерисовка компонента)
 		 */
 		protected function render():void
 		{
 
 		}
 
+		/**
+		 * @inheritDoc
+		 */
 		public function get isInited():Boolean
 		{
 			return _inited;

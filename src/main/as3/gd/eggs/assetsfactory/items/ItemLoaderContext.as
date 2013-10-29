@@ -18,18 +18,18 @@
 		//		PARAMETERS
 		//=====================================================================
 		/**
-		 * Дл�? лоадера звука
+		 * Для лоадера звука
 		 */
 		private var _bufferTime:Number;
 
 		/**
-		 * Дл�? лоадера графики
+		 * Для лоадера графики
 		 */
 		private var _applicationDomain:ApplicationDomain;
 		private var _securityDomain:SecurityDomain;
 
 		/**
-		 * Универ�?альное
+		 * Универсальное
 		 */
 		private var _checkPolicyFile:Boolean;
 
@@ -37,7 +37,7 @@
 		//		CONSTRUCTOR, INIT
 		//=====================================================================
 		/**
-		 * Универ�?альный лоадер контек�?т, параметры в�?е очевидны.
+		 * Универсальный лоадер контекст, параметры все очевидны.
 		 * @param    checkPolicy
 		 * @param    appDomain
 		 * @param    secDomain

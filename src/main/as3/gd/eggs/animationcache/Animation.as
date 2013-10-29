@@ -1,7 +1,4 @@
-﻿/**
- * Пакет для растрирования анимаций
- */
-package gd.eggs.animationcache
+﻿package gd.eggs.animationcache
 {
 
 
@@ -42,7 +39,7 @@ package gd.eggs.animationcache
 		// CONSTRUCTOR
 		//=====================================================================
 		/**
-		 * Делает анимаци из кла�?�?а загруженной флешки
+		 * Делает анимаци из класса загруженной флешки
 		 * @param scaleX
 		 * @param scaleY
 		 * @param name
@@ -76,7 +73,7 @@ package gd.eggs.animationcache
 		}
 
 		/**
-		 * Проигрывает анимацию цикличе�?ки
+		 * Проигрывает анимацию циклически
 		 */
 		public function play():void
 		{
@@ -94,7 +91,7 @@ package gd.eggs.animationcache
 		}
 
 		/**
-		 * Переход к кадру и о�?тановка
+		 * Переход к кадру и остановка
 		 * @param    frame
 		 */
 		public function gotoAndStop(frame:int):void
@@ -122,7 +119,7 @@ package gd.eggs.animationcache
 		}
 
 		/**
-		 * Переход на �?лед кадр
+		 * Переход на след кадр
 		 */
 		public function nextFrame():void
 		{
@@ -138,7 +135,7 @@ package gd.eggs.animationcache
 		}
 
 		/**
-		 * Перезаполн�?ет �?одержимое кеша заново.
+		 * Перезаполняет содержимое кеша заново.
 		 */
 		public function update():void
 		{
@@ -170,8 +167,8 @@ package gd.eggs.animationcache
 		}
 
 		/**
-		 * Проходит по в�?ем дет�?м и прокручивает на кадр �? указанным номером,
-		 * нужно в проце�?�?е кешировани�?. Утилитна�? функци�?.
+		 * Проходит по всем детям и прокручивает на кадр с указанным номером,
+		 * нужно в процессе кеширования. Утилитная функция.
 		 * @param    m
 		 */
 		private function makeAllChildrenNextFrame(m:MovieClip):void
@@ -205,7 +202,7 @@ package gd.eggs.animationcache
 		//=====================================================================
 		// ACCESSORS
 		//=====================================================================
-		/** Проигрывает�?�? ли флешка в данный момент */
+		/** Проигрывается ли флешка в данный момент */
 		public function get playing():Boolean
 		{ return _playing; }
 
@@ -217,13 +214,13 @@ package gd.eggs.animationcache
 		public function get currentFrame():int
 		{ return _currentFrame; }
 
-		/** Ма�?ив(вектор) фреймов, нужен дл�? клонировани�? */
+		/** Ма�?ив(вектор) фреймов, нужен для клонирования */
 		internal function get frames():Vector.<AnimationFrame>
 		{ return _frames; }
 
 		internal function set frames(value:Vector.<AnimationFrame>):void { _frames = value; }
 
-		/** и�?ходный мувиклип, нужен дл�? клонировани�? */
+		/** и�?ходный мувиклип, нужен для клонирования */
 		internal function get clip():MovieClip
 		{ return _clip; }
 
