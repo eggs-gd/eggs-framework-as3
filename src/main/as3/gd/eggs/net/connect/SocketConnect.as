@@ -13,11 +13,6 @@
 	import flash.utils.Timer;
 
 
-	/**
-	 * ...
-	 * @author Dukobpa3
-	 */
-
 	[Event(name="connected", type="gd.eggs.net.connect.ConnectionEvent")]
 	[Event(name="closeConnection", type="gd.eggs.net.connect.ConnectionEvent")]
 	[Event(name="connectAttempt", type="gd.eggs.net.connect.ConnectionEvent")]
@@ -27,6 +22,10 @@
 
 	[Event(name="log", type="flash.events.DataEvent")]
 
+	/**
+	 * ...
+	 * @author Dukobpa3
+	 */
 	public class SocketConnect extends EventDispatcher implements IServerConnect
 	{
 		public static const LOG:String = "log";
@@ -36,10 +35,10 @@
 		/** текущий коннект */
 		private var _config:ServerConnectConfig;
 
-		/** данные готовые дл�? и�?пользовани�? */
+		/** данные готовые для использовани�? */
 		private var _data:Object;
 
-		/** Таймер попыток �?оединени�? */
+		/** Таймер попыток соединения */
 		private var _attemptsTimeout:Timer;
 
 		/** Еще один таймер */
@@ -70,7 +69,7 @@
 		}
 
 		/**
-		 * Отправл�?ет данные на �?ервер
+		 * Отправляет данные на сервер
 		 * @param    data данные
 		 */
 		public function send(data:Object):void
@@ -105,7 +104,7 @@
 		//		PRIVATE
 		//=====================================================================
 		/**
-		 * Создание подключени�? по socket
+		 * Создание подключения по socket
 		 */
 		private function connectSocket():void
 		{
@@ -136,7 +135,7 @@
 		}
 
 		/**
-		 * Перезапу�?к таймера подключени�?
+		 * Перезапуск таймера подключения
 		 */
 		private function resetConnectionTimer():void
 		{
