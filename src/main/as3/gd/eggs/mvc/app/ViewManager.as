@@ -48,7 +48,7 @@
 
 			_views[viewName] = view;
 			_scopes[scope].addChild(view);
-			_scopeByView[view] = scope;
+			_scopeByView[view] = _scopes[scope];
 			view.hide();
 		}
 

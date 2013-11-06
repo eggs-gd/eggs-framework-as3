@@ -1,6 +1,7 @@
 ﻿package gd.eggs.net
 {
 	import gd.eggs.mvc.controller.BaseController;
+	import gd.eggs.mvc.controller.Notification;
 	import gd.eggs.net.connect.ConnectionEvent;
 	import gd.eggs.net.connect.ServerConnectConfig;
 	import gd.eggs.net.connect.SocketConnect;
@@ -12,7 +13,6 @@
 	import gd.eggs.net.protocol.decoder.DecoderEvent;
 	import gd.eggs.net.protocol.decoder.IMessageDecoder;
 	import gd.eggs.net.protocol.decoder.ParseStatus;
-	import gd.eggs.observer.Notification;
 
 
 	/**
@@ -46,13 +46,21 @@
 
 		public function ServerController(decoder:IMessageDecoder)
 		{
-			super();
+			_decoder = decoder;
 
+			super();
+		}
+
+		/**
+		 * @inheritDoc
+		 */
+		override public function init():void
+		{
 			_connection = new SocketConnect();
 			_msgPool = new Vector.<MessageBase>();
 
 			_commandDict = CommandDict.getInstance();
-			_decoder = decoder;
+
 			_decoder.addEventListener(ParseStatus.INVALID_DATA_TYPE, onDecoderError);
 			_decoder.addEventListener(ParseStatus.INVALID_PACKAGE_SIZE, onDecoderError);
 			_decoder.addEventListener(ParseStatus.RECEIVING_HEADER, onDecoderProgress);
@@ -67,30 +75,18 @@
 			_connection.addEventListener(ConnectionEvent.CLOSE, onClose);
 
 			_connection.addEventListener(ConnectionEvent.LOG, onLog);
+
+			_noteBus.addEventListener(SERVER_SEND_COMMAND, addMessage);
+
+			super.init();
 		}
 
 		/**
-		 * Подпи�?ка на нужные оповещени�?
-		 * @return
+		 * @inheritDoc
 		 */
-		override public function listNotifications():Array
+		override public function destroy():void
 		{
-			return [
-				SERVER_SEND_COMMAND, ];
-		}
-
-		/**
-		 * Обработка оповещени�? note
-		 * @param    note
-		 */
-		override public function update(note:Notification):void
-		{
-			switch (note.name)
-			{
-				case SERVER_SEND_COMMAND:
-					addMessage(note.body);
-					break;
-			}
+			super.destroy();
 		}
 
 		//-----------------------------
@@ -107,8 +103,10 @@
 		//=====================================================================
 		//		PRIVATE
 		//=====================================================================
-		private function addMessage(body:Object):void
+		private function addMessage(note:Notification):void
 		{
+			var body:Object = note.data;
+
 			var msg:MessageBase = new MessageBase(); // пу�?той ме�?адж
 
 			var id:int = body["id"];
@@ -192,7 +190,7 @@
 
 		private function onConnected(event:ConnectionEvent):void
 		{
-			sendNotification(new Notification(SERVER_CONNECTED));
+			sendNotification(SERVER_CONNECTED);
 		}
 
 		private function onSendData(event:ConnectionEvent):void
@@ -222,7 +220,7 @@
 
 		private function onClose(event:ConnectionEvent):void
 		{
-			sendNotification(new Notification(SERVER_DISCONNECTED));
+			sendNotification(SERVER_DISCONNECTED);
 		}
 
 		private function onLog(event:ConnectionEvent):void

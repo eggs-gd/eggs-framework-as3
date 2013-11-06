@@ -156,10 +156,7 @@
 		/**
 		 * @inheritDoc
 		 */
-		public function get isInited():Boolean
-		{
-			return _inited;
-		}
+		public function get isInited():Boolean { return _inited; }
 
 
 	}

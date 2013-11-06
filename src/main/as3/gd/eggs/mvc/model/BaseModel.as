@@ -108,7 +108,7 @@
 		 * @param    type строковый параметр обозначающий участок в котором произошли изменения.
 		 *          Если BaseModel.DEFAULT_CHANGE("default") - то вызываться будет коллбек по-умолчанию render().
 		 */
-		protected function update(type:String = "default"):void
+		protected function update(type:String = "default", ...rest):void
 		{
 			var callbacks:Array;
 			var func:Function;
@@ -123,7 +123,7 @@
 				callbacks = _callbacks[object][type] as Array;
 				if (!callbacks) return;
 
-				for each (func in callbacks) func();
+				for each (func in callbacks) func.apply(rest);
 			}
 
 			// Вдогонку шлем дефолтные
@@ -136,7 +136,7 @@
 				callbacks = _callbacks[object][DEFAULT_CHANGE] as Array;
 				if (!callbacks) return;
 
-				for each (func in callbacks) func();
+				for each (func in callbacks) func.apply(rest);
 			}
 
 		}
