@@ -20,6 +20,9 @@
 	{
 		public static const DEFAULT_CHANGE:String = "default";
 
+		public static const INITED:String = "modelInited";
+		public static const DESTROYED:String = "modelDestroyed";
+
 		private var _callbacks:Dictionary; // {object:{type:[callback]}}
 
 		private var _inited:Boolean;
@@ -38,6 +41,7 @@
 		public function init():void
 		{
 			_inited = true;
+			update(INITED);
 		}
 
 		/**
@@ -46,6 +50,7 @@
 		public function destroy():void
 		{
 			_inited = false;
+			update(DESTROYED);
 		}
 
 		/**
@@ -105,8 +110,10 @@
 
 		/**
 		 * При каждом изменении св-ва, необходимого для перерисовки в представлении, необходимо вызывать метод
-		 * @param    type строковый параметр обозначающий участок в котором произошли изменения.
-		 *          Если BaseModel.DEFAULT_CHANGE("default") - то вызываться будет коллбек по-умолчанию render().
+		 * @param       type строковый параметр обозначающий участок в котором произошли изменения.
+		 *              Если BaseModel.DEFAULT_CHANGE("default") - то вызываться будет коллбек по-умолчанию render().
+		 * @param rest  Список параметров которые передадутся в коллбек. Синус в отсутствии типизации.
+		 *              Может упасть при несоответствии данных. Еще раз помечтаем про адекватные делегаты в ас3.
 		 */
 		protected function update(type:String = "default", ...rest):void
 		{
