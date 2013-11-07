@@ -50,8 +50,13 @@
 			_scaleX = scaleX;
 			_scaleY = scaleY;
 
-			_clip = new (getDefinitionByName(_id) as Class)();
-			_clip.gotoAndStop(1)
+			var cl:Class = getDefinitionByName(_id) as Class;
+			// Возможно лучше выкидывать ошибку, но тогда нет смысла в проверке, так как ошибка и так будет.
+			// С таким подходом мы просто получим пустую анимашку без кадров. Снаружи можно будет проверить.
+			if (!cl) return;
+
+			_clip = new cl();
+			_clip.gotoAndStop(1);
 
 			var r:Rectangle;
 
@@ -67,7 +72,6 @@
 
 				_frames.push(new AnimationFrame(bitmapData, r.x, r.y));
 
-				_clip.nextFrame();
 				makeAllChildrenNextFrame(_clip);
 			}
 		}
@@ -111,7 +115,7 @@
 		}
 
 		/**
-		 * Переход к �?лучайному кадру и проигрывание
+		 * Переход к случайному кадру и проигрывание
 		 */
 		public function gotoAndPlayRandomFrame():void
 		{
@@ -153,7 +157,7 @@
 		 */
 		private function goto(num:int):void
 		{
-			if (num > totalFrames) num = num % totalFrames; //num - (totalFrames * int(num / totalFrames));
+			if (num > totalFrames) num = num % totalFrames;
 			if (!frame) num = totalFrames;
 
 			_currentFrame = num;
@@ -173,13 +177,14 @@
 		 */
 		private function makeAllChildrenNextFrame(m:MovieClip):void
 		{
+			m.nextFrame();
+
 			for (var i:int = 0; i < m.numChildren; i++)
 			{
 				var c:* = m.getChildAt(i);
 				if (c is MovieClip)
 				{
 					makeAllChildrenNextFrame(c);
-					c.nextFrame();
 				}
 			}
 		}
@@ -196,34 +201,30 @@
 			nextFrame();
 
 			if (_currentFrame >= totalFrames)
+			{
 				dispatchEvent(new Event(Event.COMPLETE))
+			}
 		}
 
 		//=====================================================================
 		// ACCESSORS
 		//=====================================================================
 		/** Проигрывается ли флешка в данный момент */
-		public function get playing():Boolean
-		{ return _playing; }
+		public function get playing():Boolean { return _playing; }
 
 		/** Полное кол-во кадров */
-		public function get totalFrames():int
-		{ return _frames.length; }
+		public function get totalFrames():int { return _frames.length; }
 
 		/** Текущий кадр */
-		public function get currentFrame():int
-		{ return _currentFrame; }
+		public function get currentFrame():int { return _currentFrame; }
 
-		/** Ма�?ив(вектор) фреймов, нужен для клонирования */
-		internal function get frames():Vector.<AnimationFrame>
-		{ return _frames; }
+		/** Масив(вектор) фреймов, нужен для клонирования */
+		internal function get frames():Vector.<AnimationFrame> { return _frames; }
 
 		internal function set frames(value:Vector.<AnimationFrame>):void { _frames = value; }
 
-		/** и�?ходный мувиклип, нужен для клонирования */
-		internal function get clip():MovieClip
-		{ return _clip; }
-
+		/** исходный мувиклип, нужен для клонирования */
+		internal function get clip():MovieClip { return _clip; }
 		internal function set clip(value:MovieClip):void { _clip = value; }
 
 
