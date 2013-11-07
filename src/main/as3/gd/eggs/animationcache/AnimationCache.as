@@ -19,7 +19,10 @@
 		//=====================================================================
 		public function AnimationCache()
 		{
-			if (instance) throw(new Error("AnimationCache is a Singleton. Don't Instantiate!"));
+			if (instance)
+			{
+				throw(new Error("AnimationCache is a Singleton. Don't Instantiate!"));
+			}
 			instance = this;
 		}
 
@@ -27,7 +30,7 @@
 		// PUBLIC
 		//=====================================================================
 		/**
-		 * Выдает ин�?тан�? библиотеки
+		 * Выдает инстанс библиотеки
 		 * @return
 		 */
 		public static function getInstance():AnimationCache
@@ -45,7 +48,7 @@
 		 */
 		public function cacheAnimation(id:String, scaleX:Number, scaleY:Number):Animation
 		{
-			// TODO придумать что-то чтобы можно было кешировать одну и ту же анимацию �? разными �?кейлами
+			// TODO придумать что-то чтобы можно было кешировать одну и ту же анимацию с разными скейлами
 			var animation:Animation;
 			if (!animations[id] || replaceExisting)
 			{
@@ -94,7 +97,7 @@
 			for each(var anim:XML in list.anim)
 			{
 				cacheAnimation(anim.@name, parseFloat(anim.@scaleX) || 1, parseFloat(anim.@scaleY) || 1);
-				//TODO добавить ди�?патчи �?обытий о прогре�?�?е при групповой загрузке
+				//TODO добавить диспатчи событий о прогрессе при групповой загрузке
 			}
 		}
 	}
