@@ -35,7 +35,7 @@
 		//	Graphics
 		//-----------------------------
 		private static var _hint:Sprite; // контейнер всего хинта
-		private static var _hintBgCont:Sprite; // Добавлялся для удобного управления балуном и стрелочкой, пока не буду выпиливать.
+		private static var _hintBgCont:Sprite; // Добавлялся для удобного управления балуном и стрелочкой, не реализовано
 		private static var _bg:DisplayObject; // Бек, любой дисплейобжект который умеет ресайзиться.
 		private static var _dataCont:Sprite; // контейнер контента
 		private static var _hintFld:TextField; // текстовое поле для текстовых хинтов
@@ -65,8 +65,9 @@
 		//=====================================================================
 		/**
 		 * инициализация
-		 * @param    host слой хинта. Самый верхний в системе
-		 * @param    bg бек
+		 * @param host          слой хинта. Самый верхний в системе
+		 * @param bg            бек
+		 * @param embedFonts    Для текстфилда.
 		 */
 		public static function init(host:DisplayObjectContainer, bg:DisplayObject, embedFonts:Boolean = true):void
 		{
@@ -83,31 +84,39 @@
 
 			_hintFld = new TextField();
 			_hintFld.mouseEnabled = false;
+
+			//TODO Вынести эти настройки наружу
 			_hintFld.autoSize = TextFieldAutoSize.LEFT;
 			_hintFld.multiline = true;
 			_hintFld.wordWrap = true;
+			//---------------------------------
+
 			_hintFld.embedFonts = embedFonts;
 
 			_dataCont = new Sprite();
-			//_dataCont.x = _dataCont.y = 10;
 
 			_hint.addChild(_hintBgCont);
 			_hint.addChild(_dataCont);
 		}
 
 		/**
-		 * Реги�?трируем хинт в системе.
-		 * @param    item объект на котором должен появляться хинт (после регистрации его можно двигать, хинт поймет и будет рисоваться правильно в новых координатах)
-		 * @param    data строка либо DisplayObject контента хинта.
-		 * @param    delay задержка в секундах до появления хинта после наведения мыши
-		 * @param    move двигать ли хинт при перемещении мышки над объектом. Если фолс то появится в точке наведения и пропадет когда убрал мышь.
+		 * Регистрируем хинт в системе.
+		 * @param item  объект на котором должен появляться хинт
+	     *              (после регистрации его можно двигать,
+		 *              хинт поймет и будет рисоваться правильно в новых координатах)
+		 * @param data  строка либо DisplayObject контента хинта.
+		 * @param delay задержка в секундах до появления хинта после наведения мыши
+		 * @param move  двигать ли хинт при перемещении мышки над объектом.
+		 *              Если фолс то появится в точке наведения и пропадет когда убрал мышь.
+		 *              // TODO сделать режим привязки к координатам либо движения за мышкой.
+		 *              Статично появляться в точке наведения не ок.
 		 */
 		public static function addItem(item:InteractiveObject, data:Object, delay:Number = 0.2, move:Boolean = true):void
 		{
 			_items[item] = { delay: delay, data: data, move: move };
 			item.addEventListener(MouseEvent.ROLL_OVER, onItemOver);
-			item.addEventListener(MouseEvent.ROLL_OUT, onItemOut);
-			item.addEventListener(MouseEvent.CLICK, onItemClick);
+			item.addEventListener(MouseEvent.ROLL_OUT, removeHint);
+			item.addEventListener(MouseEvent.CLICK, removeHint);
 		}
 
 		/**
@@ -118,9 +127,9 @@
 		{
 			if (_items[item]) delete _items[item];
 			item.removeEventListener(MouseEvent.ROLL_OVER, onItemOver);
-			item.removeEventListener(MouseEvent.ROLL_OUT, onItemOut);
-			item.removeEventListener(MouseEvent.CLICK, onItemClick);
 			item.removeEventListener(MouseEvent.MOUSE_MOVE, onItemMove);
+			item.removeEventListener(MouseEvent.ROLL_OUT, removeHint);
+			item.removeEventListener(MouseEvent.CLICK, removeHint);
 		}
 
 		//=====================================================================
@@ -136,6 +145,7 @@
 
 			if (_currentHint.data is String)
 			{
+				// TODO Вернуть крутотенюшку с автоподбором размера в пропорциях 4х3
 				_hintFld.text = "";
 				_dataCont.addChild(_hintFld);
 				_hintFld.width = 160;
@@ -154,7 +164,7 @@
 			}
 			else
 			{
-				throw new Error("�?е поддерживаемый тип данных, и�?пользуйте String или DisplayObject");
+				throw new Error("Не поддерживаемый тип данных, используйте String или DisplayObject");
 			}
 		}
 
@@ -169,16 +179,16 @@
 			var stage:Stage = _host.stage;
 			if (!stage) return;
 
-			if (stage.mouseX - _hint.width * 0.5 < 0) // е�?ли вылазит влево за екран
+			if (stage.mouseX - _hint.width * 0.5 < 0) // если вылазит влево за екран
 			{
 				_hint.x = 5;
 			}
-			else if (stage.mouseX + _hint.width * 0.5 > stage.stageWidth) // е�?ли вылазит вправо за екран
+			else if (stage.mouseX + _hint.width * 0.5 > stage.stageWidth) // если вылазит вправо за екран
 			{
 				_hint.x = int(stage.stageWidth - _hint.width - 5);
 			}
 
-			if (stage.mouseY - _hint.height < 0) // е�?ли вылазит наверх
+			if (stage.mouseY - _hint.height < 0) // если вылазит наверх
 			{
 				_hint.y = 5;
 			}
@@ -187,61 +197,6 @@
 		//=====================================================================
 		//	HANDLERS
 		//=====================================================================
-		/**
-		 * При клике на итем - прячем хинт
-		 * @param    e
-		 */
-		private static function onItemClick(e:MouseEvent):void
-		{
-			if (_currentItem)
-			{
-				_currentItem.removeEventListener(MouseEvent.MOUSE_MOVE, onItemMove);
-				_currentItem = null;
-			}
-
-			if (_timer)
-			{
-				_timer.removeEventListener(TimerEvent.TIMER_COMPLETE, onTimerOver);
-				_timer.reset();
-				_timer = null;
-			}
-
-			if (_host.contains(_hint)) _host.removeChild(_hint);
-		}
-
-		/**
-		 * Обновление по движению мышки над итемом. Двигает хинт за мышкой.
-		 * @param    e
-		 */
-		private static function onItemMove(e:MouseEvent):void
-		{
-			setPosition();
-		}
-
-		/**
-		 * Убираем хинт когда мышка ушла с итема.
-		 * @param    e
-		 */
-		private static function onItemOut(e:MouseEvent):void
-		{
-			var item:InteractiveObject = e.currentTarget as InteractiveObject;
-			if (item == _currentItem)
-			{
-				_currentItem = null;
-				_currentHint = null;
-			}
-
-			item.removeEventListener(MouseEvent.MOUSE_MOVE, onItemMove);
-			if (_timer)
-			{
-				_timer.removeEventListener(TimerEvent.TIMER_COMPLETE, onTimerOver);
-				_timer.reset();
-				_timer = null;
-			}
-
-			if (_host.contains(_hint)) _host.removeChild(_hint);
-		}
-
 		/**
 		 * Запускаем тамйер когда мышка навелась на итем.
 		 * @param    e
@@ -277,6 +232,33 @@
 
 			updateHint();
 			setPosition();
+		}
+
+		/**
+		 * Обновление по движению мышки над итемом. Двигает хинт за мышкой.
+		 * @param    e
+		 */
+		private static function onItemMove(e:MouseEvent):void
+		{
+			setPosition();
+		}
+
+		private static function removeHint(e:MouseEvent):void
+		{
+			if (_currentItem)
+			{
+				_currentItem.removeEventListener(MouseEvent.MOUSE_MOVE, onItemMove);
+				_currentItem = null;
+			}
+
+			if (_timer)
+			{
+				_timer.removeEventListener(TimerEvent.TIMER_COMPLETE, onTimerOver);
+				_timer.reset();
+				_timer = null;
+			}
+
+			if (_host.contains(_hint)) _host.removeChild(_hint);
 		}
 
 		//=====================================================================

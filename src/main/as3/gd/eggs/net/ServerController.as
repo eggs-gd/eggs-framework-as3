@@ -19,7 +19,7 @@
 	 * ...
 	 * @author Dukobpa3
 	 */
-		// TODO: Возможно�?ти контроллера не и�?пользуют�?�?, перепилить под нечто другое, придумать генер�?щий�?�? одминкой �?ендер
+	// TODO Упростить всё нафиг. Отрезать говнокод гогамеса.
 	public class ServerController extends BaseController
 	{
 		public static var SERVER_CONNECTED:String = "serverConnected";

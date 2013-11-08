@@ -9,8 +9,6 @@
 		public static function isNull(d:*):Boolean
 		{
 			return d == null;
-
-
 		}
 
 		public static function isNotNull(d:*):Boolean
