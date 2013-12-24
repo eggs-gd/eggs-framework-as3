@@ -13,7 +13,6 @@
 		<module>modules/eggs-utils-as3</module>
 		<module>modules/eggs-mvc-as3</module>
 		<module>modules/eggs-net-as3</module>
-		<module>modules/eggs-bulkloader-as3</module>
 	</modules>
 
 	<build>
