@@ -13,6 +13,7 @@
 	 * Базовый класс-представление
 	 * При создании или установке модели добавляет коллбек по-умолчанию
 	 * При удалении модели или дестрое - удаляет его.
+	 * Остальные подписки следует добавить в инит и дестрой
 	 * @author Dukobpa3
 	 */
 	public class BaseView extends Sprite implements IInitialize
@@ -156,10 +157,7 @@
 		/**
 		 * @inheritDoc
 		 */
-		public function get isInited():Boolean
-		{
-			return _inited;
-		}
+		public function get isInited():Boolean { return _inited; }
 
 
 	}

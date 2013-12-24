@@ -1,10 +1,8 @@
 ﻿package gd.eggs.mvc.controller
 {
 
-	import gd.eggs.observer.IObservable;
-	import gd.eggs.observer.IObserver;
-	import gd.eggs.observer.Notification;
-	import gd.eggs.observer.Observer;
+	import flash.events.EventDispatcher;
+
 	import gd.eggs.util.IInitialize;
 
 
@@ -12,45 +10,31 @@
 	 * Базовый класс контроллера. Умеет слушать и слать нотификации в обсервер.
 	 * @author Dukobpa3
 	 */
-	public class BaseController implements IObserver, IObservable, IInitialize
+	public class BaseController implements IInitialize
 	{
+		/**
+		 * Шина для передачи данных между контроллерами.
+		 * Обсервер, но через EventDispatcher
+		 * В каждом конкретном контроллере подписываемся на ивенты с этой шины и всё.
+		 */
+		protected static var _noteBus:EventDispatcher;
 
 		private var _isInited:Boolean;
 
-		/**
-		 * Синглтон обсервера
-		 */
-		private var obs:Observer;
 
 		public function BaseController()
 		{
-			obs = Observer.getInstance();
-			obs.registerObserver(this as IObserver);
+			_noteBus = _noteBus || new EventDispatcher();
 		}
 
 		/**
-		 * @inheritDoc
+		 *
+		 * @param type
+		 * @param data
 		 */
-		public function listNotifications():Array
+		protected function sendNotification(type:String, data:Object = null):void
 		{
-			return [];
-		}
-
-		/**
-		 * @inheritDoc
-		 */
-		public function update(note:Notification):void
-		{
-
-		}
-
-		/**
-		 * @inheritDoc
-		 */
-		public function sendNotification(note:Notification):void
-		{
-			note.target = this;
-			obs.notifyObservers(note);
+			_noteBus.dispatchEvent(new Notification(type, data, this));
 		}
 
 		/**
@@ -72,10 +56,7 @@
 		/**
 		 * @inheritDoc
 		 */
-		public function get isInited():Boolean
-		{
-			return _isInited;
-		}
+		public function get isInited():Boolean { return _isInited; }
 	}
 
 }

@@ -15,9 +15,6 @@
 		/** Далее вьюхи */
 		function registerViews():void;
 
-		/** Далее нотификации в обсервер (пришло из хакса, с текущей схемой не нужен) */
-		function registerNotifications():void;
-
 		/** В последнюю очередь регистрируются контроллеры */
 		function registerControllers():void;
 	}

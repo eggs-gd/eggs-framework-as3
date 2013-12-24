@@ -20,6 +20,9 @@
 	{
 		public static const DEFAULT_CHANGE:String = "default";
 
+		public static const INITED:String = "modelInited";
+		public static const DESTROYED:String = "modelDestroyed";
+
 		private var _callbacks:Dictionary; // {object:{type:[callback]}}
 
 		private var _inited:Boolean;
@@ -38,6 +41,7 @@
 		public function init():void
 		{
 			_inited = true;
+			update(INITED);
 		}
 
 		/**
@@ -46,6 +50,7 @@
 		public function destroy():void
 		{
 			_inited = false;
+			update(DESTROYED);
 		}
 
 		/**
@@ -96,7 +101,7 @@
 		}
 
 		/**
-		 * Модель рассылает событие, об обновлении
+		 * Модель рассылает дефолтное событие об обновлении
 		 */
 		public function refresh():void
 		{
@@ -105,10 +110,12 @@
 
 		/**
 		 * При каждом изменении св-ва, необходимого для перерисовки в представлении, необходимо вызывать метод
-		 * @param    type строковый параметр обозначающий участок в котором произошли изменения.
-		 *          Если BaseModel.DEFAULT_CHANGE("default") - то вызываться будет коллбек по-умолчанию render().
+		 * @param       type строковый параметр обозначающий участок в котором произошли изменения.
+		 *              Если BaseModel.DEFAULT_CHANGE("default") - то вызываться будет коллбек по-умолчанию render().
+		 * @param rest  Список параметров которые передадутся в коллбек. Минус в отсутствии типизации.
+		 *              Может упасть при несоответствии данных. Еще раз помечтаем про адекватные делегаты в ас3.
 		 */
-		protected function update(type:String = "default"):void
+		protected function update(type:String = "default", ...rest):void
 		{
 			var callbacks:Array;
 			var func:Function;
@@ -123,7 +130,7 @@
 				callbacks = _callbacks[object][type] as Array;
 				if (!callbacks) return;
 
-				for each (func in callbacks) func();
+				for each (func in callbacks) func.apply(rest);
 			}
 
 			// Вдогонку шлем дефолтные
@@ -136,7 +143,7 @@
 				callbacks = _callbacks[object][DEFAULT_CHANGE] as Array;
 				if (!callbacks) return;
 
-				for each (func in callbacks) func();
+				for each (func in callbacks) func.apply(rest);
 			}
 
 		}

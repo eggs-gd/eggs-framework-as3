@@ -4,14 +4,14 @@
 
 
 	/**
-	 * Базовый кла�?�? �?обыти�?, от�?ылаемого пред�?тавлением
+	 * Базовый класс события, отсылаемого представлением
 	 * @author Dukobpa3
 	 */
 	public class ViewEvent extends Event
 	{
 		/**
-		 * О�?новное �?обытие изменени�? модели
-		 * тип �?обыти�? указывает�?�? в subType
+		 * Основное событие изменения модели
+		 * тип события указывается в subType
 		 */
 		public static const CHANGE:String = "viewChange";
 
@@ -19,12 +19,13 @@
 		private var _data:Object;
 
 		/**
-		 * Создает новое �?обытие вьюхи
-		 * @param    type - тип (во�?новном ViewEvent.CHANGE)
+		 * Создает новое событие вьюхи
+		 * @param    type - тип (восновном ViewEvent.CHANGE)
 		 * @param    subType - подтип - можно указывать любой удобный.
-		 * @param    data - данные передаваемые �? �?обытием.
+		 * @param    data - данные передаваемые с событием.
 		 * @param    bubbles
 		 * @param    cancelable
+		 * //TODO свернуть тип, так как везде одинаковый. Ставить автоматом.
 		 */
 		public function ViewEvent(type:String, subType:String, data:Object = null, bubbles:Boolean = false, cancelable:Boolean = false)
 		{
@@ -35,13 +36,13 @@
 		}
 
 		/**
-		 * Тип �?обыти�? от пред�?тавлени�?
+		 * Тип события от представления
 		 */
 		public function get subType():String
 		{ return _subType; }
 
 		/**
-		 * Данные отправл�?емые вме�?те �? �?обытием
+		 * Данные отправляемые вместе с событием
 		 */
 		public function get data():Object
 		{ return _data;}

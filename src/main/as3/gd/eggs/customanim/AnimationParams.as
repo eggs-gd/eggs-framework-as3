@@ -53,7 +53,7 @@ package gd.eggs.customanim
 			_loopDelay = loopDelay;
 			_frameRate = frameRate;
 
-			_frameTime = 1000 / frameRate
+			_frameTime = 1000 / frameRate;
 
 			reset();
 		}
