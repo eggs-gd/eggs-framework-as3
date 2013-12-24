@@ -10,8 +10,8 @@
 
     <parent>
         <groupId>gd.eggs.as3</groupId>
-        <artifactId>base</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <artifactId>base-as3</artifactId>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
@@ -46,24 +46,31 @@
             <id>github.repo.release</id>
             <name>Internal Repository</name>
             <url>https://github.com/eggs-gd/eggs-mvn-artifactory/raw/master/mvn-repo/release</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>false</enabled></snapshots>
         </repository>
         <repository>
             <id>github.repo.snapshot</id>
             <name>Internal Repository</name>
             <url>https://github.com/eggs-gd/eggs-mvn-artifactory/raw/master/mvn-repo/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+            <releases><enabled>false</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
         </repository>
+
+		<repository>
+			<id>eggs-gd-release</id>
+			<name>eggsgd.cloudbees.release</name>
+			<url>https://repository-eggsgd.forge.cloudbees.com/release/</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>false</enabled></snapshots>
+		</repository>
+		<repository>
+			<id>eggs-gd-snapshot</id>
+			<name>eggsgd.cloudbees.snapshot</name>
+			<url>https://repository-eggsgd.forge.cloudbees.com/snapshot/</url>
+			<releases><enabled>false</enabled></releases>
+			<snapshots><enabled>true</enabled></snapshots>
+		</repository>
     </repositories>
 
 </project>
