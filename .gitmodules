@@ -4,3 +4,9 @@
 [submodule "modules/eggs-mvc-as3"]
 	path = modules/eggs-mvc-as3
 	url = git@github.com:eggs-gd/eggs-mvc-as3.git
+[submodule "modules/eggs-utils-as3"]
+	path = modules/eggs-utils-as3
+	url = git@github.com:eggs-gd/eggs-utils-as3.git
+[submodule "modules/eggs-bulkloader-as3"]
+	path = modules/eggs-bulkloader-as3
+	url = git@github.com:Dukobpa3/eggs-bulkloader-as3.git

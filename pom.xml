@@ -3,74 +3,45 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>eggs-framework-as3</artifactId>
-    <name>eggs-framework-as3</name>
+	<groupId>gd.eggs.as3</groupId>
+    <artifactId>framework</artifactId>
+    <name>framework</name>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>swc</packaging>
+    <packaging>pom</packaging>
 
-    <parent>
-        <groupId>gd.eggs.as3</groupId>
-        <artifactId>base-as3</artifactId>
-        <version>1.0.0</version>
-    </parent>
+	<modules>
+		<module>modules/eggs-utils-as3</module>
+		<module>modules/eggs-mvc-as3</module>
+		<module>modules/eggs-net-as3</module>
+		<module>modules/eggs-bulkloader-as3</module>
+	</modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.junkbyte.console</groupId>
-            <artifactId>console-cc</artifactId>
-            <version>2.6</version>
-            <type>swc</type>
-        </dependency>
-        <dependency>
-            <groupId>aze.motion.tween</groupId>
-            <artifactId>eaze-tween</artifactId>
-            <version>rc2</version>
-            <type>swc</type>
-        </dependency>
-        <dependency>
-            <groupId>org.serialization.bson</groupId>
-            <artifactId>lib-bson</artifactId>
-            <version>1.2</version>
-            <type>swc</type>
-        </dependency>
-        <dependency>
-            <groupId>starling</groupId>
-            <artifactId>starling</artifactId>
-            <version>1.0</version>
-            <type>swc</type>
-        </dependency>
-    </dependencies>
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav</artifactId>
+				<version>1.0-beta-2</version>
+			</extension>
+		</extensions>
+	</build>
 
-    <repositories>
-        <repository>
-            <id>github.repo.release</id>
-            <name>Internal Repository</name>
-            <url>https://github.com/eggs-gd/eggs-mvn-artifactory/raw/master/mvn-repo/release</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>false</enabled></snapshots>
-        </repository>
-        <repository>
-            <id>github.repo.snapshot</id>
-            <name>Internal Repository</name>
-            <url>https://github.com/eggs-gd/eggs-mvn-artifactory/raw/master/mvn-repo/snapshot</url>
-            <releases><enabled>false</enabled></releases>
-            <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-
+	<distributionManagement>
 		<repository>
 			<id>eggs-gd-release</id>
 			<name>eggsgd.cloudbees.release</name>
-			<url>https://repository-eggsgd.forge.cloudbees.com/release/</url>
-			<releases><enabled>true</enabled></releases>
-			<snapshots><enabled>false</enabled></snapshots>
+			<url>dav:https://repository-eggsgd.forge.cloudbees.com/release/</url>
 		</repository>
-		<repository>
+		<snapshotRepository>
 			<id>eggs-gd-snapshot</id>
 			<name>eggsgd.cloudbees.snapshot</name>
-			<url>https://repository-eggsgd.forge.cloudbees.com/snapshot/</url>
-			<releases><enabled>false</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
-		</repository>
-    </repositories>
+			<url>dav:https://repository-eggsgd.forge.cloudbees.com/snapshot/</url>
+		</snapshotRepository>
+
+		<!--<site>
+		   <id>documentation</id>
+			<url>scp://www.mycompany.com/www/docs/project/</url>
+		</site>-->
+	</distributionManagement>
 
 </project>
