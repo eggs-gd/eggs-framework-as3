@@ -7,3 +7,6 @@
 [submodule "modules/eggs-utils-as3"]
 	path = modules/eggs-utils-as3
 	url = git@github.com:eggs-gd/eggs-utils-as3.git
+[submodule "modules/eggs-animation-as3"]
+	path = modules/eggs-animation-as3
+	url = git@github.com:eggs-gd/eggs-animation-as3.git
